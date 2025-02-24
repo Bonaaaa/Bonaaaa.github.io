@@ -1,0 +1,40 @@
+/* styles.css */
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+header {
+    background: #333;
+}
+
+.navbar {
+    background: #444 !important;
+}
+
+section {
+    padding: 60px 0;
+}
+
+.card {
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+footer {
+    background: #333;
+}
+
+/* Add to styles.css */
+@media (max-width: 768px) {
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    section {
+        padding: 15px;
+    }
+}

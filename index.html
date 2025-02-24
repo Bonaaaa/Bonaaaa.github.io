@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>BayuBona_CV</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        .circle-img {
+            width: 150px; 
+            height: 150px;
+            border-radius: 75%;
+            object-fit: cover;
+            object-position: 40% 35%;
+        }
+        .card-text {
+            text-align: justify;
+        }
+
+        /* Section background images */
+        .experience-section {
+            background-image: url('gnss-sec.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white; /* Ensure text is readable */
+            padding: 60px 0;
+        }
+
+        .education-section {
+            background-image: url('education-3-sec.jpg'); /* Replace with your image path */
+            background-size: cover;
+            background-position: center;
+            color: white; /* Ensure text is readable */
+            padding: 60px 0;
+        }
+
+        .certification-section {
+            background-image: url('certification-sec.jpg'); /* Replace with your image path */
+            background-size: cover;
+            background-position: center;
+            color: white; /* Ensure text is readable */
+            padding: 60px 0;
+        }
+
+        /* Semi-transparent overlay for better readability */
+        .section-overlay {
+            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black overlay */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        /* Ensure links are visible */
+        .experience-section a, .education-section a, .certification-section a {
+            color: #ffcc00; /* Bright color for links */
+            text-decoration: none;
+        }
+
+        .experience-section a:hover, .education-section a:hover, .certification-section a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="bg-dark text-white text-center py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="text-center">
+                        <img src="photo.jpg" class="circle-img img-fluid" alt="Circular Image">
+                    </div>
+                </div>
+            </div>
+            <h1 class="display-4">Bayu Bona Ringgas Purba</h1>
+            <p class="lead">Bachelor of Science in Geophysics</p>
+        </div>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About Me</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Work Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#Certification">Certification</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Me Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">About Me</h2>
+            <p class="text-center">Proven quick learning and robust analytical abilities, ready to pivot into any fast-paced industry.</p>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience-section">
+        <div class="container">
+            <div class="section-overlay">
+                <h2 class="text-center mb-4">Work Experience</h2>
+                <div class="row">
+                    <!-- Card 1 -->
+                    <div class="col-12 col-md-6">
+                        <div class="card mb-3 bg-transparent text-white">
+                            <div class="card-body">
+                                <h3 class="card-title">GNSS Data Operator</h3>
+                                <p class="card-subtitle mb-2">PT. Aksa Karya Satria Angkasa (Aksa Tech) | <a href="http://aksatech.id">aksatech.id</a> (2023-2024)</p>
+                                <ul class="card-text">
+                                    <li>
+                                        Worked under contract with BPN as part of a team of four to create orthophotos of remote villages in 
+                                        Jambi and South Sumatra, covering a total area of 17,000 hectares within 30 working days. I was 
+                                        responsible for acquiring over 50 GNSS data observations while tackling problems that challenge the 
+                                        acquisition in the field, processing them, and using them as Ground Control Points (GCPs) while 
+                                        involving multiple software. 
+                                    </li>
+                                    <li>
+                                        Trained new recruits during their transition phase as GNSS data operators over the span of two days, 
+                                        including the acquisition of GNSS data observations in the field and processing the acquired data. 
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="col-12 col-md-6">
+                        <div class="card mb-3 bg-transparent text-white">
+                            <div class="card-body">
+                                <h3 class="card-title">Head of MASW-Refraction Method for Mineral Exploration</h3>
+                                <p class="card-subtitle mb-2">Field Camp SEG UGM 2022 | <a href="http://geophysicsfieldcamp.mipa.ugm.ac.id">geophysicsfieldcamp.mipa.ugm.ac.id</a> (2021-2022)</p>
+                                <ul class="card-text">
+                                    <li>
+                                        Led and managed a team of six to design a survey using the Multichannel Analysis of Surface Waves 
+                                        (MASW) Refraction Method, aimed at comparing the landslide susceptibility of slopes in the project 
+                                        area. 
+                                    </li>
+                                    <li>
+                                        Worked in a team to acquire geophysical data over an area of more than 1,200 hectares, including 
+                                        methods such as MASW-Refraction, Microtremor, VLF, IP, AMT, Magnetic, and Gravity, to assist a 
+                                        local mining company in administering a smallholder mining permit. 
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education-section">
+        <div class="container">
+            <div class="section-overlay">
+                <h2 class="text-center mb-4">Education</h2>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <div class="card mb-3 bg-transparent text-white">
+                            <div class="card-body">
+                                <h3 class="card-title">Bachelor of Science | <a href="http://geofisika.ugm.ac.id">geofisika.ugm.ac.id</a></h3>
+                                <p class="card-subtitle mb-2">Gadjah Mada University Class of 2022</p>
+                                <ul>
+                                    <li>
+                                        <h3>Thesis (2022) | <a href="https://drive.google.com/file/d/1SxA2MI53Pg2vnO3TC47YYcAiunO2aHNR/view?usp=sharing">Thesis Poster</a></h3>
+                                        <p> Four-month research in Bantul with a government organization to map seismic vulnerability index.</p>
+                                    </li>
+                                    <li>
+                                        <h3>Laboratory Assistant (2021) | <a href="https://github.com/Bonaaaa/Praktikum-MAG-2021">Contribution</a></h3>
+                                        <p>Organized, demonstrated, and executed good laboratory works as a 
+                                            assistant for subject Geophysical Data Analysis using Python in Geophysics Undergraduate Program.</p>
+                                    </li>
+                                    <li>
+                                        <h3>Organizational Activities (2019-2020)</h3>
+                                        <p>Frequently took the opportunity to be responsible as the head of the 
+                                            licensing and equipment division at regular events of the student association in the department.</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certification Section -->
+    <section id="Certification" class="certification-section">
+        <div class="container">
+            <div class="section-overlay">
+                <h2 class="text-center mb-4">Certification</h2>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <div class="card mb-3 bg-transparent text-white">
+                            <div class="card-body">
+                                <ul>
+                                    <li>
+                                        <h3>Supply Chain Logistics | <a href="http://coursera.org/verify/L1J3EL2AGK6V">Certificate</a></h3>
+                                        <p>Micro skills gained: Warehousing Management and Logistics Networking Analysis</p>
+                                    </li>
+                                    <li>
+                                        <h3>Google PM – Foundation of Project Management | <a href="http://coursera.org/verify/FL4PZF6PSDD4">Certificate</a></h3>
+                                        <p>Micro skill gained: Lean Six Sigma Methodology</p>
+                                    </li>
+                                    <li>
+                                        <h3>Supply Chain Analytics | <a href="http://coursera.org/verify/MVLAESKTZQ8E">Certificate</a></h3>
+                                        <p>Micro skill gained: Inventory-Shipping Cost Analysis via Excel</p>
+                                    </li>
+                                    <li>
+                                        <h3>Solving Problems with Creative and Critical Thinking | <a href="http://coursera.org/verify/VZAP2BYHF3PE">Certificate</a></h3>
+                                        <p>Micro skill gained: Implementing Five Steps Problem Solving Process</p>
+                                    </li>
+                                    <li>
+                                        <h3>Global Procurement and Sourcing | <a href="http://coursera.org/verify/specialization/S5T8BUM8YER2">Certificate</a></h3>
+                                        <p>Micro skills gained: PESTLE for Supply Market Analysis, 7-step Strategic Sourcing Process, and 
+                                            Basic Business Negotiation</p>
+                                    </li>
+                                </ul>   
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Let's Connect!</h2>
+            <div class="row">
+                <div class="col-12 col-md-6 mx-auto text-center">
+                    <p>Email: <a href="bayubona00@mail.ugm.ac.id">bayubona00@mail.ugm.ac.id</a></p>
+                    <p>LinkedIn: <a href="https://linkedin.com/in/bayubona">Bayu Bona Ringgas Purba</a></p>
+                    <p>GitHub: <a href="https://github.com/Bonaaaa">Bonaaaa</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+        <div class="container">
+            <p>&copy; 2025 BayuBona_. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS (Optional, for interactive components) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
