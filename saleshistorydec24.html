@@ -55,7 +55,7 @@
     <div id="map"></div>
   </div>
   <footer>
-    &copy; 2024 AB Corp. by BayuBona_. All rights reserved.
+    &copy; 2025 AB Corp. by BayuBona_. All rights reserved.
   </footer>
 
   <!-- Main script -->
@@ -220,7 +220,7 @@
               // Update store markers for the selected product in that state
               updateStoreMarkersForStateAndProduct(stateName, productName);
               
-              // Compute total sales for the selected product in the state, and format to 3 decimals
+              // Compute total sales for the selected product in the state
               const filteredStores = siteData.filter(store =>
                 store.state_province === stateName && store.product_name === productName
               );
@@ -232,7 +232,11 @@
               if(filteredStores.length > 0) {
                 productUnit = filteredStores[0].product_unit;
               }
-              const formattedTotal = productTotal.toFixed(3);
+              // Only format to 3 decimal places for specific products
+              let formattedTotal = productTotal;
+              if (productName === "G87E10S" || productName === "No Lead Plus") {
+                formattedTotal = productTotal.toFixed(3);
+              }
               // Update the state bubble tooltip to show product details
               const newTooltip = `Product: ${productName}<br>Total sales: ${formattedTotal} ${productUnit}`;
               if(stateMarkersObj[stateName]) {
