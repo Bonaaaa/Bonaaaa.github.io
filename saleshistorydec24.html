@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Sales Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <style>
+      body { 
+        font-family: Arial, sans-serif; 
+        margin: 20px; 
+        text-align: center; 
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+      #dashboard { 
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+        gap: 20px; 
+        flex: 1;
+      }
+      #chart-container, #map {
+        width: 100%;
+        max-width: 800px;
+      }
+      #map {
+        height: 500px;
+        border-radius: 10px;
+      }
+      footer {
+        text-align: center;
+        padding: 10px;
+        font-size: 0.9em;
+        color: #666;
+        border-top: 1px solid #ddd;
+      }
+      /* Responsive adjustments */
+      @media (max-width: 600px) {
+        #map {
+          height: 300px;
+        }
+      }
+  </style>
+</head>
+<body>
+  <h1>AB Corp. Line of Product Sales - December 2024</h1>
+  <div id="dashboard">
+    <div id="chart-container">
+      <canvas id="myChart"></canvas>
+    </div>
+    <div id="map"></div>
+  </div>
+  <footer>
+    &copy; 2024 AB Corp. by BayuBona_. All rights reserved.
+  </footer>
+
+  <!-- Main script -->
+  <script type="module">
+    import { datasets } from './datasets.js';
+    import { siteDataFinal } from './siteDataFinal.js';
+
+    // Define state centers and sales (the "total" is used for bubble sizing)
+    const stateSales = {
+      "Arkansas": { total: 774.174, lat: 34.7465, lon: -92.2896 },
+      "Colorado": { total: 97.925, lat: 39.5501, lon: -105.7821 },
+      "Iowa": { total: 870.328, lat: 41.878, lon: -93.0977 },
+      "Minnesota": { total: 58.346, lat: 46.7296, lon: -94.6859 },
+      "Missouri": { total: 802.358, lat: 38.5739, lon: -92.6038 },
+      "Nebraska": { total: 229.438, lat: 41.4925, lon: -99.9018 },
+      "Oklahoma": { total: 489.967, lat: 35.4676, lon: -97.5164 },
+      "South Dakota": { total: 87.165, lat: 44.3683, lon: -100.351 },
+      "Wyoming": { total: 65.771, lat: 43.075, lon: -107.2903 }
+    };
+    const states = Object.keys(stateSales);
+
+    // Use the imported siteDataFinal as our store data
+    const siteData = siteDataFinal;
+    let storeMarkers = [];
+
+    // Initial map view settings
+    const initialMapView = { center: [37.8, -96], zoom: 4 };
+
+    // Initialize Leaflet map
+    const map = L.map('map').setView(initialMapView.center, initialMapView.zoom);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Define custom green icon for store markers (placemarks)
+    const greenIcon = L.icon({
+      iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png',
+      shadowUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-shadow.png',
+      iconSize: [25, 41],
+      iconAnchor: [12, 41],
+      popupAnchor: [1, -34],
+      shadowSize: [41, 41]
+    });
+
+    // Create an object mapping state names to their bubble markers
+    const stateMarkersObj = {};
+
+    // Add bubble markers for each state with dynamic radius based on overall sales volume
+    states.forEach(state => {
+      const { total, lat, lon } = stateSales[state];
+      // Scale the radius: minimum 5, maximum around 25 (for the highest sales value ~870)
+      const radius = 5 + (total / 870) * 20;
+      const marker = L.circleMarker([lat, lon], {
+        radius: radius,
+        fillColor: "blue",
+        color: "blue",
+        weight: 1,
+        opacity: 1,
+        fillOpacity: 0.6
+      }).addTo(map);
+      // Initial tooltip shows state name and overall total sales
+      marker.bindTooltip(`${state}<br>Total sales: ${total} units`, { permanent: false, direction: 'top' });
+      stateMarkersObj[state] = marker;
+    });
+
+    // Function to update store markers for a given state and product
+    function updateStoreMarkersForStateAndProduct(stateName, productName) {
+      console.log(`Updating markers for state: ${stateName} and product: ${productName}`);
+      // Remove existing store markers
+      storeMarkers.forEach(marker => map.removeLayer(marker));
+      storeMarkers = [];
+
+      // Filter store data based on state and product
+      const filteredStores = siteData.filter(store =>
+        store.state_province === stateName && store.product_name === productName
+      );
+      console.log('Filtered Stores:', filteredStores);
+
+      // Add store markers for each matching store using the green icon
+      filteredStores.forEach(store => {
+        let marker = L.marker([store.latitude, store.longitude], { icon: greenIcon }).addTo(map);
+        marker.bindTooltip(
+          `<b>${store.site_name}</b><br>Product: ${store.product_name}<br>Sales: ${store.sum_of_sale} ${store.product_unit}`,
+          { permanent: false, direction: "top" }
+        );
+        storeMarkers.push(marker);
+      });
+    }
+
+    // Variables to keep track of last selected state and product
+    let lastSelectedState = "";
+    let lastSelectedProduct = "";
+
+    // Initialize Chart.js with responsive axis max
+    const ctx = document.getElementById('myChart').getContext('2d');
+    const myChart = new Chart(ctx, {
+      type: 'bar',
+      data: { labels: states, datasets: datasets },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'bottom',
+            onClick: function(e, legendItem) {
+              const ci = this.chart;
+              const index = legendItem.datasetIndex;
+              // Toggle dataset visibility (mimic default behavior)
+              const meta = ci.getDatasetMeta(index);
+              meta.hidden = meta.hidden === null ? !ci.data.datasets[index].hidden : null;
+              
+              // Adjust y-axis max based on visible datasets
+              const allVisible = ci.data.datasets.every((_, i) => !ci.getDatasetMeta(i).hidden);
+              if(allVisible) {
+                ci.options.scales.y.max = 1000;
+              } else {
+                let newMax = 0;
+                ci.data.datasets.forEach((ds, i) => {
+                  if (!ci.getDatasetMeta(i).hidden) {
+                    const dsMax = Math.max(...ds.data);
+                    if(dsMax > newMax) newMax = dsMax;
+                  }
+                });
+                newMax = (newMax < 100) ? 70 : Math.ceil(newMax / 100) * 100;
+                ci.options.scales.y.max = newMax;
+              }
+              ci.update();
+            }
+          }
+        },
+        onClick: (event) => {
+          const elements = myChart.getElementsAtEventForMode(event, 'nearest', { intersect: true }, true);
+          if (elements.length > 0) {
+            const element = elements[0];
+            const stateIndex = element.index;
+            const datasetIndex = element.datasetIndex;
+            const stateName = states[stateIndex];
+            const productName = myChart.data.datasets[datasetIndex].label;
+            const stateInfo = stateSales[stateName];
+            console.log(`Bar clicked - State: ${stateName}, Product: ${productName}`);
+
+            // If the same state and product are selected, zoom out and revert tooltip
+            if (lastSelectedState === stateName && lastSelectedProduct === productName) {
+              // Reset map view to initial state
+              map.setView(initialMapView.center, initialMapView.zoom);
+              // Clear store markers
+              storeMarkers.forEach(marker => map.removeLayer(marker));
+              storeMarkers = [];
+              // Revert the state's bubble tooltip to original
+              const originalTooltip = `${stateName}<br>Total sales: ${stateInfo.total} units`;
+              if (stateMarkersObj[stateName]) {
+                stateMarkersObj[stateName].setTooltipContent(originalTooltip);
+              }
+              // Clear the last selection
+              lastSelectedState = "";
+              lastSelectedProduct = "";
+            } else {
+              // Save new selection
+              lastSelectedState = stateName;
+              lastSelectedProduct = productName;
+              // Zoom into the state's center
+              map.setView([stateInfo.lat, stateInfo.lon], 7);
+              // Update store markers for the selected product in that state
+              updateStoreMarkersForStateAndProduct(stateName, productName);
+              
+              // Compute total sales for the selected product in the state, and format to 3 decimals
+              const filteredStores = siteData.filter(store =>
+                store.state_province === stateName && store.product_name === productName
+              );
+              let productTotal = 0;
+              let productUnit = "";
+              filteredStores.forEach(store => {
+                productTotal += Number(store.sum_of_sale);
+              });
+              if(filteredStores.length > 0) {
+                productUnit = filteredStores[0].product_unit;
+              }
+              const formattedTotal = productTotal.toFixed(3);
+              // Update the state bubble tooltip to show product details
+              const newTooltip = `Product: ${productName}<br>Total sales: ${formattedTotal} ${productUnit}`;
+              if(stateMarkersObj[stateName]) {
+                stateMarkersObj[stateName].setTooltipContent(newTooltip);
+              }
+            }
+          }
+        },
+        scales: {
+          x: { 
+            stacked: true, 
+            title: { display: true, text: 'States' } 
+          },
+          y: { 
+            stacked: true, 
+            title: { display: true, text: 'Units Sold' },
+            max: 900  // initial maximum value
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
