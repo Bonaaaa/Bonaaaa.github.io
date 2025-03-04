@@ -6,7 +6,7 @@ export const siteDataFinal = [
     longitude: -94.2313,
     product_name: "G87E10S",
     sum_of_sale: 49.44,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Iowa",
@@ -15,7 +15,7 @@ export const siteDataFinal = [
     longitude: -94.4171,
     product_name: "G87E10S",
     sum_of_sale: 30.396,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Arkansas",
@@ -24,7 +24,7 @@ export const siteDataFinal = [
     longitude: -94.2313,
     product_name: "SLC PZ PEPPRNI 13IN FCS",
     sum_of_sale: 3.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Arkansas",
@@ -33,7 +33,7 @@ export const siteDataFinal = [
     longitude: -94.2313,
     product_name: "No Lead Plus",
     sum_of_sale: 3.573,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Missouri",
@@ -42,7 +42,7 @@ export const siteDataFinal = [
     longitude: -94.7649,
     product_name: "KOOLEE",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Missouri",
@@ -51,7 +51,7 @@ export const siteDataFinal = [
     longitude: -94.7649,
     product_name: "HOT DOG FCS",
     sum_of_sale: 3.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Missouri",
@@ -60,7 +60,7 @@ export const siteDataFinal = [
     longitude: -94.7649,
     product_name: "MEDIUM FTN",
     sum_of_sale: 2.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Missouri",
@@ -69,7 +69,7 @@ export const siteDataFinal = [
     longitude: -94.7649,
     product_name: "G87E10S",
     sum_of_sale: 38.701,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Iowa",
@@ -78,7 +78,7 @@ export const siteDataFinal = [
     longitude: -94.6098,
     product_name: "MEDIUM FTN",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Iowa",
@@ -87,7 +87,7 @@ export const siteDataFinal = [
     longitude: -94.6098,
     product_name: "HOT DOG FCS",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Arkansas",
@@ -96,7 +96,7 @@ export const siteDataFinal = [
     longitude: -92.4051,
     product_name: "MEDIUM FTN",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Arkansas",
@@ -105,7 +105,7 @@ export const siteDataFinal = [
     longitude: -92.4051,
     product_name: "G87E10S",
     sum_of_sale: 17.124,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Iowa",
@@ -114,7 +114,7 @@ export const siteDataFinal = [
     longitude: -94.7355,
     product_name: "G87E10S",
     sum_of_sale: 17.095,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Missouri",
@@ -123,7 +123,7 @@ export const siteDataFinal = [
     longitude: -92.1384,
     product_name: "WILD TURKEY AM HNY 50ML",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Missouri",
@@ -132,7 +132,7 @@ export const siteDataFinal = [
     longitude: -92.1384,
     product_name: "G87E10S",
     sum_of_sale: 0.91,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Missouri",
@@ -141,7 +141,7 @@ export const siteDataFinal = [
     longitude: -92.1384,
     product_name: "KK AST FILL",
     sum_of_sale: 3.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Wyoming",
@@ -150,7 +150,7 @@ export const siteDataFinal = [
     longitude: -105.493,
     product_name: "MEDIUM FTN",
     sum_of_sale: 2.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Wyoming",
@@ -159,7 +159,7 @@ export const siteDataFinal = [
     longitude: -105.493,
     product_name: "No Lead Plus",
     sum_of_sale: 23.6,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Missouri",
@@ -168,7 +168,7 @@ export const siteDataFinal = [
     longitude: -92.3793,
     product_name: "KOOLEE",
     sum_of_sale: 3.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Missouri",
@@ -177,7 +177,7 @@ export const siteDataFinal = [
     longitude: -92.3793,
     product_name: "No Lead Plus",
     sum_of_sale: 35.487,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Missouri",
@@ -186,7 +186,7 @@ export const siteDataFinal = [
     longitude: -92.3793,
     product_name: "G87E10S",
     sum_of_sale: 41.138,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Missouri",
@@ -195,7 +195,7 @@ export const siteDataFinal = [
     longitude: -94.8933,
     product_name: "SLC PZ PEPPRNI 13IN FCS",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Missouri",
@@ -204,7 +204,7 @@ export const siteDataFinal = [
     longitude: -94.8933,
     product_name: "G87E10S",
     sum_of_sale: 29.929,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Iowa",
@@ -213,7 +213,7 @@ export const siteDataFinal = [
     longitude: -94.7692,
     product_name: "MEDIUM FTN",
     sum_of_sale: 2.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Iowa",
@@ -222,7 +222,7 @@ export const siteDataFinal = [
     longitude: -94.7692,
     product_name: "HOT DOG FCS",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Iowa",
@@ -231,7 +231,7 @@ export const siteDataFinal = [
     longitude: -94.7692,
     product_name: "G87E10S",
     sum_of_sale: 49.712,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Oklahoma",
@@ -240,7 +240,7 @@ export const siteDataFinal = [
     longitude: -94.7605,
     product_name: "MEDIUM FTN",
     sum_of_sale: 7.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Oklahoma",
@@ -249,7 +249,7 @@ export const siteDataFinal = [
     longitude: -94.7605,
     product_name: "SLC PZ PEPPRNI 13IN FCS",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Oklahoma",
@@ -258,7 +258,7 @@ export const siteDataFinal = [
     longitude: -94.7605,
     product_name: "G87E10S",
     sum_of_sale: 29.068,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Oklahoma",
@@ -267,7 +267,7 @@ export const siteDataFinal = [
     longitude: -94.7605,
     product_name: "No Lead Plus",
     sum_of_sale: 9.264,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Oklahoma",
@@ -276,7 +276,7 @@ export const siteDataFinal = [
     longitude: -98.4133,
     product_name: "MEDIUM FTN",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Arkansas",
@@ -285,7 +285,7 @@ export const siteDataFinal = [
     longitude: -93.1298,
     product_name: "SLC PZ PEPPRNI 13IN FCS",
     sum_of_sale: 2.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Arkansas",
@@ -294,7 +294,7 @@ export const siteDataFinal = [
     longitude: -93.1298,
     product_name: "No Lead Plus",
     sum_of_sale: 35.193,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Missouri",
@@ -303,7 +303,7 @@ export const siteDataFinal = [
     longitude: -94.8225,
     product_name: "No Lead Plus",
     sum_of_sale: 29.543,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Missouri",
@@ -312,7 +312,7 @@ export const siteDataFinal = [
     longitude: -94.8225,
     product_name: "G87E10S",
     sum_of_sale: 48.562,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Nebraska",
@@ -321,7 +321,7 @@ export const siteDataFinal = [
     longitude: -98.5592,
     product_name: "SLC PZ PEPPRNI 13IN FCS",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Iowa",
@@ -330,7 +330,7 @@ export const siteDataFinal = [
     longitude: -91.8436,
     product_name: "MEDIUM FTN",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Iowa",
@@ -339,7 +339,7 @@ export const siteDataFinal = [
     longitude: -91.8436,
     product_name: "G87E10S",
     sum_of_sale: 84.866,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Iowa",
@@ -348,7 +348,7 @@ export const siteDataFinal = [
     longitude: -92.1603,
     product_name: "MEDIUM FTN",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Iowa",
@@ -357,7 +357,7 @@ export const siteDataFinal = [
     longitude: -92.1603,
     product_name: "KOOLEE",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Missouri",
@@ -366,7 +366,7 @@ export const siteDataFinal = [
     longitude: -94.9733,
     product_name: "MEDIUM FTN",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Missouri",
@@ -375,7 +375,7 @@ export const siteDataFinal = [
     longitude: -94.9733,
     product_name: "G87E10S",
     sum_of_sale: 38.811,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Colorado",
@@ -384,7 +384,7 @@ export const siteDataFinal = [
     longitude: -104.868,
     product_name: "KOOLEE",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Colorado",
@@ -393,7 +393,7 @@ export const siteDataFinal = [
     longitude: -104.868,
     product_name: "SLC PZ PEPPRNI 13IN FCS",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Colorado",
@@ -402,7 +402,7 @@ export const siteDataFinal = [
     longitude: -104.891,
     product_name: "No Lead Plus",
     sum_of_sale: 4.415,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Colorado",
@@ -411,7 +411,7 @@ export const siteDataFinal = [
     longitude: -104.771,
     product_name: "MEDIUM FTN",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Colorado",
@@ -420,7 +420,7 @@ export const siteDataFinal = [
     longitude: -104.771,
     product_name: "KOOLEE",
     sum_of_sale: 3.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Oklahoma",
@@ -429,7 +429,7 @@ export const siteDataFinal = [
     longitude: -100.535,
     product_name: "SLC PZ PEPPRNI 13IN FCS",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Oklahoma",
@@ -438,7 +438,7 @@ export const siteDataFinal = [
     longitude: -100.535,
     product_name: "No Lead Plus",
     sum_of_sale: 12.158,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Iowa",
@@ -447,7 +447,7 @@ export const siteDataFinal = [
     longitude: -91.1525,
     product_name: "MEDIUM FTN",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Iowa",
@@ -456,7 +456,7 @@ export const siteDataFinal = [
     longitude: -91.1525,
     product_name: "G87E10S",
     sum_of_sale: 5.935,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Iowa",
@@ -465,7 +465,7 @@ export const siteDataFinal = [
     longitude: -94.9476,
     product_name: "SLC PZ PEPPRNI 13IN FCS",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Iowa",
@@ -474,7 +474,7 @@ export const siteDataFinal = [
     longitude: -94.9476,
     product_name: "No Lead Plus",
     sum_of_sale: 15.006,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Arkansas",
@@ -483,7 +483,7 @@ export const siteDataFinal = [
     longitude: -93.9312,
     product_name: "MEDIUM FTN",
     sum_of_sale: 2.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Arkansas",
@@ -492,7 +492,7 @@ export const siteDataFinal = [
     longitude: -93.9312,
     product_name: "SLC PZ PEPPRNI 13IN FCS",
     sum_of_sale: 2.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Arkansas",
@@ -501,7 +501,7 @@ export const siteDataFinal = [
     longitude: -93.9312,
     product_name: "G87E10S",
     sum_of_sale: 44.589,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Iowa",
@@ -510,7 +510,7 @@ export const siteDataFinal = [
     longitude: -95.1403,
     product_name: "MEDIUM FTN",
     sum_of_sale: 2.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Iowa",
@@ -519,7 +519,7 @@ export const siteDataFinal = [
     longitude: -95.1403,
     product_name: "G87E10S",
     sum_of_sale: 4.21,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Iowa",
@@ -528,7 +528,7 @@ export const siteDataFinal = [
     longitude: -95.1403,
     product_name: "No Lead Plus",
     sum_of_sale: 18.65,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Colorado",
@@ -537,7 +537,7 @@ export const siteDataFinal = [
     longitude: -105.004,
     product_name: "MEDIUM FTN",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Colorado",
@@ -546,7 +546,7 @@ export const siteDataFinal = [
     longitude: -105.004,
     product_name: "No Lead Plus",
     sum_of_sale: 13.02,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Iowa",
@@ -555,7 +555,7 @@ export const siteDataFinal = [
     longitude: -93.0034,
     product_name: "REESES 1.5OZ REG",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Iowa",
@@ -564,7 +564,7 @@ export const siteDataFinal = [
     longitude: -93.0034,
     product_name: "G87E10S",
     sum_of_sale: 23.131,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Arkansas",
@@ -573,7 +573,7 @@ export const siteDataFinal = [
     longitude: -91.4074,
     product_name: "MEDIUM FTN",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Arkansas",
@@ -582,7 +582,7 @@ export const siteDataFinal = [
     longitude: -91.4074,
     product_name: "G87E10S",
     sum_of_sale: 22.9,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Iowa",
@@ -591,7 +591,7 @@ export const siteDataFinal = [
     longitude: -92.8406,
     product_name: "MEDIUM FTN",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Iowa",
@@ -600,7 +600,7 @@ export const siteDataFinal = [
     longitude: -92.8406,
     product_name: "G87E10S",
     sum_of_sale: 55.908,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Missouri",
@@ -609,7 +609,7 @@ export const siteDataFinal = [
     longitude: -90.0274,
     product_name: "MEDIUM FTN",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Missouri",
@@ -618,7 +618,7 @@ export const siteDataFinal = [
     longitude: -90.0274,
     product_name: "G87E10S",
     sum_of_sale: 15.113,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Missouri",
@@ -627,7 +627,7 @@ export const siteDataFinal = [
     longitude: -90.0274,
     product_name: "No Lead Plus",
     sum_of_sale: 19.731,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Missouri",
@@ -636,7 +636,7 @@ export const siteDataFinal = [
     longitude: -93.3235,
     product_name: "KOOLEE",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Missouri",
@@ -645,7 +645,7 @@ export const siteDataFinal = [
     longitude: -94.2775,
     product_name: "MEDIUM FTN",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Iowa",
@@ -654,7 +654,7 @@ export const siteDataFinal = [
     longitude: -94.9231,
     product_name: "G87E10S",
     sum_of_sale: 7.521,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Nebraska",
@@ -663,7 +663,7 @@ export const siteDataFinal = [
     longitude: -98.1452,
     product_name: "MEDIUM FTN",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Nebraska",
@@ -672,7 +672,7 @@ export const siteDataFinal = [
     longitude: -98.1452,
     product_name: "G87E10S",
     sum_of_sale: 7.198,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Nebraska",
@@ -681,7 +681,7 @@ export const siteDataFinal = [
     longitude: -98.1452,
     product_name: "No Lead Plus",
     sum_of_sale: 32.882,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Colorado",
@@ -690,7 +690,7 @@ export const siteDataFinal = [
     longitude: -105.865,
     product_name: "MEDIUM FTN",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Colorado",
@@ -699,7 +699,7 @@ export const siteDataFinal = [
     longitude: -105.865,
     product_name: "HOT DOG FCS",
     sum_of_sale: 3.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Arkansas",
@@ -708,7 +708,7 @@ export const siteDataFinal = [
     longitude: -94.4929,
     product_name: "MEDIUM FTN",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Arkansas",
@@ -717,7 +717,7 @@ export const siteDataFinal = [
     longitude: -94.4929,
     product_name: "No Lead Plus",
     sum_of_sale: 16.823,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Arkansas",
@@ -726,7 +726,7 @@ export const siteDataFinal = [
     longitude: -91.3257,
     product_name: "MEDIUM FTN",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Arkansas",
@@ -735,7 +735,7 @@ export const siteDataFinal = [
     longitude: -91.3257,
     product_name: "G87E10S",
     sum_of_sale: 35.248,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Arkansas",
@@ -744,7 +744,7 @@ export const siteDataFinal = [
     longitude: -91.3257,
     product_name: "No Lead Plus",
     sum_of_sale: 26.962,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Missouri",
@@ -753,7 +753,7 @@ export const siteDataFinal = [
     longitude: -92.2822,
     product_name: "MEDIUM FTN",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Missouri",
@@ -762,7 +762,7 @@ export const siteDataFinal = [
     longitude: -92.2822,
     product_name: "G87E10S",
     sum_of_sale: 46.547,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Iowa",
@@ -771,7 +771,7 @@ export const siteDataFinal = [
     longitude: -91.875,
     product_name: "MEDIUM FTN",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Iowa",
@@ -780,7 +780,7 @@ export const siteDataFinal = [
     longitude: -91.875,
     product_name: "G87E10S",
     sum_of_sale: 14.08,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Colorado",
@@ -789,7 +789,7 @@ export const siteDataFinal = [
     longitude: -103.223,
     product_name: "MEDIUM FTN",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Colorado",
@@ -798,7 +798,7 @@ export const siteDataFinal = [
     longitude: -103.223,
     product_name: "No Lead Plus",
     sum_of_sale: 20.332,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Arkansas",
@@ -807,7 +807,7 @@ export const siteDataFinal = [
     longitude: -91.3771,
     product_name: "KOOLEE",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Arkansas",
@@ -816,7 +816,7 @@ export const siteDataFinal = [
     longitude: -91.3771,
     product_name: "No Lead Plus",
     sum_of_sale: 2.96,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Arkansas",
@@ -825,7 +825,7 @@ export const siteDataFinal = [
     longitude: -91.3771,
     product_name: "G87E10S",
     sum_of_sale: 53.522,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Missouri",
@@ -834,7 +834,7 @@ export const siteDataFinal = [
     longitude: -90.0134,
     product_name: "MEDIUM FTN",
     sum_of_sale: 2.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Missouri",
@@ -843,7 +843,7 @@ export const siteDataFinal = [
     longitude: -90.0134,
     product_name: "KOOLEE",
     sum_of_sale: 2.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Missouri",
@@ -852,7 +852,7 @@ export const siteDataFinal = [
     longitude: -90.0134,
     product_name: "G87E10S",
     sum_of_sale: 43.731,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Colorado",
@@ -861,7 +861,7 @@ export const siteDataFinal = [
     longitude: -105.006,
     product_name: "KOOLEE",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Arkansas",
@@ -870,7 +870,7 @@ export const siteDataFinal = [
     longitude: -94.302,
     product_name: "KOOLEE",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Arkansas",
@@ -879,7 +879,7 @@ export const siteDataFinal = [
     longitude: -94.302,
     product_name: "MEDIUM FTN",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Arkansas",
@@ -888,7 +888,7 @@ export const siteDataFinal = [
     longitude: -94.302,
     product_name: "HOT DOG FCS",
     sum_of_sale: 2.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Arkansas",
@@ -897,7 +897,7 @@ export const siteDataFinal = [
     longitude: -94.302,
     product_name: "G87E10S",
     sum_of_sale: 10.192,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Oklahoma",
@@ -906,7 +906,7 @@ export const siteDataFinal = [
     longitude: -98.5899,
     product_name: "MEDIUM FTN",
     sum_of_sale: 2.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Oklahoma",
@@ -915,7 +915,7 @@ export const siteDataFinal = [
     longitude: -98.5899,
     product_name: "No Lead Plus",
     sum_of_sale: 9.073,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Oklahoma",
@@ -924,7 +924,7 @@ export const siteDataFinal = [
     longitude: -98.3789,
     product_name: "MEDIUM FTN",
     sum_of_sale: 4.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Oklahoma",
@@ -933,7 +933,7 @@ export const siteDataFinal = [
     longitude: -98.3789,
     product_name: "HOT DOG FCS",
     sum_of_sale: 2.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Oklahoma",
@@ -942,7 +942,7 @@ export const siteDataFinal = [
     longitude: -98.3789,
     product_name: "KOOLEE",
     sum_of_sale: 2.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Oklahoma",
@@ -951,7 +951,7 @@ export const siteDataFinal = [
     longitude: -98.3789,
     product_name: "G87E10S",
     sum_of_sale: 39.969,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Iowa",
@@ -960,7 +960,7 @@ export const siteDataFinal = [
     longitude: -91.8623,
     product_name: "HOT DOG FCS",
     sum_of_sale: 2.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Iowa",
@@ -969,7 +969,7 @@ export const siteDataFinal = [
     longitude: -91.8623,
     product_name: "G87E10S",
     sum_of_sale: 54.971,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Missouri",
@@ -978,7 +978,7 @@ export const siteDataFinal = [
     longitude: -95.5157,
     product_name: "KK AST FILL",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Missouri",
@@ -987,7 +987,7 @@ export const siteDataFinal = [
     longitude: -95.5157,
     product_name: "HOT DOG FCS",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Missouri",
@@ -996,7 +996,7 @@ export const siteDataFinal = [
     longitude: -95.5157,
     product_name: "G87E10S",
     sum_of_sale: 25.581,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Oklahoma",
@@ -1005,7 +1005,7 @@ export const siteDataFinal = [
     longitude: -98.1534,
     product_name: "MEDIUM FTN",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Oklahoma",
@@ -1014,7 +1014,7 @@ export const siteDataFinal = [
     longitude: -98.1534,
     product_name: "HOT DOG FCS",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Oklahoma",
@@ -1023,7 +1023,7 @@ export const siteDataFinal = [
     longitude: -98.1534,
     product_name: "G87E10S",
     sum_of_sale: 42.232,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Arkansas",
@@ -1032,7 +1032,7 @@ export const siteDataFinal = [
     longitude: -92.4672,
     product_name: "KK AST FILL",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Arkansas",
@@ -1041,7 +1041,7 @@ export const siteDataFinal = [
     longitude: -92.4672,
     product_name: "G87E10S",
     sum_of_sale: 21.685,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Oklahoma",
@@ -1050,7 +1050,7 @@ export const siteDataFinal = [
     longitude: -96.1456,
     product_name: "MEDIUM FTN",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Oklahoma",
@@ -1059,7 +1059,7 @@ export const siteDataFinal = [
     longitude: -96.1456,
     product_name: "G87E10S",
     sum_of_sale: 20.738,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Missouri",
@@ -1068,7 +1068,7 @@ export const siteDataFinal = [
     longitude: -92.3362,
     product_name: "MEDIUM FTN",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Missouri",
@@ -1077,7 +1077,7 @@ export const siteDataFinal = [
     longitude: -92.3362,
     product_name: "HOT DOG FCS",
     sum_of_sale: 2.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Missouri",
@@ -1086,7 +1086,7 @@ export const siteDataFinal = [
     longitude: -92.3362,
     product_name: "KK AST FILL",
     sum_of_sale: 3.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Missouri",
@@ -1095,7 +1095,7 @@ export const siteDataFinal = [
     longitude: -92.3362,
     product_name: "FIREBALL WHSKY 50ML",
     sum_of_sale: 10.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Missouri",
@@ -1104,7 +1104,7 @@ export const siteDataFinal = [
     longitude: -92.3362,
     product_name: "G87E10S",
     sum_of_sale: 21.846,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Missouri",
@@ -1113,7 +1113,7 @@ export const siteDataFinal = [
     longitude: -95.3812,
     product_name: "KOOLEE",
     sum_of_sale: 2.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Missouri",
@@ -1122,7 +1122,7 @@ export const siteDataFinal = [
     longitude: -95.3812,
     product_name: "G87E10S",
     sum_of_sale: 27.944,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Missouri",
@@ -1131,7 +1131,7 @@ export const siteDataFinal = [
     longitude: -95.3812,
     product_name: "WILD TURKEY AM HNY 50ML",
     sum_of_sale: 6.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Missouri",
@@ -1140,7 +1140,7 @@ export const siteDataFinal = [
     longitude: -95.3812,
     product_name: "No Lead Plus",
     sum_of_sale: 13.703,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Iowa",
@@ -1149,7 +1149,7 @@ export const siteDataFinal = [
     longitude: -92.4478,
     product_name: "MEDIUM FTN",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Iowa",
@@ -1158,7 +1158,7 @@ export const siteDataFinal = [
     longitude: -92.4478,
     product_name: "G87E10S",
     sum_of_sale: 29.924,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Iowa",
@@ -1167,7 +1167,7 @@ export const siteDataFinal = [
     longitude: -92.4478,
     product_name: "No Lead Plus",
     sum_of_sale: 37.512,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "South Dakota",
@@ -1176,7 +1176,7 @@ export const siteDataFinal = [
     longitude: -98.4377,
     product_name: "MEDIUM FTN",
     sum_of_sale: 3.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "South Dakota",
@@ -1185,7 +1185,7 @@ export const siteDataFinal = [
     longitude: -98.4377,
     product_name: "HOT DOG FCS",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "South Dakota",
@@ -1194,7 +1194,7 @@ export const siteDataFinal = [
     longitude: -98.4377,
     product_name: "G87E10S",
     sum_of_sale: 58.695,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Missouri",
@@ -1203,7 +1203,7 @@ export const siteDataFinal = [
     longitude: -95.393,
     product_name: "G87E10S",
     sum_of_sale: 32.151,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Nebraska",
@@ -1212,7 +1212,7 @@ export const siteDataFinal = [
     longitude: -98.4387,
     product_name: "MEDIUM FTN",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Nebraska",
@@ -1221,7 +1221,7 @@ export const siteDataFinal = [
     longitude: -98.4387,
     product_name: "HOT DOG FCS",
     sum_of_sale: 2.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Nebraska",
@@ -1230,7 +1230,7 @@ export const siteDataFinal = [
     longitude: -98.4387,
     product_name: "G87E10S",
     sum_of_sale: 45.657,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Missouri",
@@ -1239,7 +1239,7 @@ export const siteDataFinal = [
     longitude: -91.6434,
     product_name: "HOT DOG FCS",
     sum_of_sale: 2.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Missouri",
@@ -1248,7 +1248,7 @@ export const siteDataFinal = [
     longitude: -91.6434,
     product_name: "G87E10S",
     sum_of_sale: 13.241,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Missouri",
@@ -1257,7 +1257,7 @@ export const siteDataFinal = [
     longitude: -91.6434,
     product_name: "No Lead Plus",
     sum_of_sale: 11.743,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Nebraska",
@@ -1266,7 +1266,7 @@ export const siteDataFinal = [
     longitude: -97.8663,
     product_name: "MEDIUM FTN",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Arkansas",
@@ -1275,7 +1275,7 @@ export const siteDataFinal = [
     longitude: -94.4536,
     product_name: "MEDIUM FTN",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Arkansas",
@@ -1284,7 +1284,7 @@ export const siteDataFinal = [
     longitude: -94.4536,
     product_name: "No Lead Plus",
     sum_of_sale: 4.55,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Arkansas",
@@ -1293,7 +1293,7 @@ export const siteDataFinal = [
     longitude: -94.4536,
     product_name: "G87E10S",
     sum_of_sale: 22.324,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Missouri",
@@ -1302,7 +1302,7 @@ export const siteDataFinal = [
     longitude: -94.334,
     product_name: "MEDIUM FTN",
     sum_of_sale: 2.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Missouri",
@@ -1311,7 +1311,7 @@ export const siteDataFinal = [
     longitude: -94.334,
     product_name: "G87E10S",
     sum_of_sale: 20.27,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Nebraska",
@@ -1320,7 +1320,7 @@ export const siteDataFinal = [
     longitude: -101.691,
     product_name: "MEDIUM FTN",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Nebraska",
@@ -1329,7 +1329,7 @@ export const siteDataFinal = [
     longitude: -101.691,
     product_name: "SLC PZ PEPPRNI 13IN FCS",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Nebraska",
@@ -1338,7 +1338,7 @@ export const siteDataFinal = [
     longitude: -101.691,
     product_name: "G87E10S",
     sum_of_sale: 6.208,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Nebraska",
@@ -1347,7 +1347,7 @@ export const siteDataFinal = [
     longitude: -101.691,
     product_name: "No Lead Plus",
     sum_of_sale: 22.37,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Missouri",
@@ -1356,7 +1356,7 @@ export const siteDataFinal = [
     longitude: -91.6456,
     product_name: "G87E10S",
     sum_of_sale: 42.695,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Nebraska",
@@ -1365,7 +1365,7 @@ export const siteDataFinal = [
     longitude: -103.741,
     product_name: "MEDIUM FTN",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Nebraska",
@@ -1374,7 +1374,7 @@ export const siteDataFinal = [
     longitude: -103.741,
     product_name: "FIREBALL WHSKY 50ML",
     sum_of_sale: 2.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Nebraska",
@@ -1383,7 +1383,7 @@ export const siteDataFinal = [
     longitude: -103.741,
     product_name: "G87E10S",
     sum_of_sale: 43.202,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Nebraska",
@@ -1392,7 +1392,7 @@ export const siteDataFinal = [
     longitude: -103.741,
     product_name: "No Lead Plus",
     sum_of_sale: 13.98,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Iowa",
@@ -1401,7 +1401,7 @@ export const siteDataFinal = [
     longitude: -94.8908,
     product_name: "MEDIUM FTN",
     sum_of_sale: 2.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Iowa",
@@ -1410,7 +1410,7 @@ export const siteDataFinal = [
     longitude: -94.8908,
     product_name: "HOT DOG FCS",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Iowa",
@@ -1419,7 +1419,7 @@ export const siteDataFinal = [
     longitude: -94.8908,
     product_name: "G87E10S",
     sum_of_sale: 7.785,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Missouri",
@@ -1428,7 +1428,7 @@ export const siteDataFinal = [
     longitude: -91.486,
     product_name: "G87E10S",
     sum_of_sale: 8.645,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Arkansas",
@@ -1437,7 +1437,7 @@ export const siteDataFinal = [
     longitude: -94.212,
     product_name: "MEDIUM FTN",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Arkansas",
@@ -1446,7 +1446,7 @@ export const siteDataFinal = [
     longitude: -94.212,
     product_name: "G87E10S",
     sum_of_sale: 30.782,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Missouri",
@@ -1455,7 +1455,7 @@ export const siteDataFinal = [
     longitude: -91.7252,
     product_name: "No Lead Plus",
     sum_of_sale: 19.863,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Iowa",
@@ -1464,7 +1464,7 @@ export const siteDataFinal = [
     longitude: -92.4034,
     product_name: "MEDIUM FTN",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Iowa",
@@ -1473,7 +1473,7 @@ export const siteDataFinal = [
     longitude: -92.4034,
     product_name: "HOT DOG FCS",
     sum_of_sale: 2.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Iowa",
@@ -1482,7 +1482,7 @@ export const siteDataFinal = [
     longitude: -92.4034,
     product_name: "G87E10S",
     sum_of_sale: 9.578,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Missouri",
@@ -1491,7 +1491,7 @@ export const siteDataFinal = [
     longitude: -94.0928,
     product_name: "MEDIUM FTN",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Missouri",
@@ -1500,7 +1500,7 @@ export const siteDataFinal = [
     longitude: -94.0928,
     product_name: "WILD TURKEY AM HNY 50ML",
     sum_of_sale: 4.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Missouri",
@@ -1509,7 +1509,7 @@ export const siteDataFinal = [
     longitude: -94.0928,
     product_name: "REESES 1.5OZ REG",
     sum_of_sale: 4.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Missouri",
@@ -1518,7 +1518,7 @@ export const siteDataFinal = [
     longitude: -94.0928,
     product_name: "G87E10S",
     sum_of_sale: 23.548,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Arkansas",
@@ -1527,7 +1527,7 @@ export const siteDataFinal = [
     longitude: -94.1154,
     product_name: "MEDIUM FTN",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Arkansas",
@@ -1536,7 +1536,7 @@ export const siteDataFinal = [
     longitude: -94.1154,
     product_name: "G87E10S",
     sum_of_sale: 49.725,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Arkansas",
@@ -1545,7 +1545,7 @@ export const siteDataFinal = [
     longitude: -94.1154,
     product_name: "No Lead Plus",
     sum_of_sale: 19.932,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Oklahoma",
@@ -1554,7 +1554,7 @@ export const siteDataFinal = [
     longitude: -94.5681,
     product_name: "G87E10S",
     sum_of_sale: 12.727,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Arkansas",
@@ -1563,7 +1563,7 @@ export const siteDataFinal = [
     longitude: -94.1246,
     product_name: "MEDIUM FTN",
     sum_of_sale: 2.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Arkansas",
@@ -1572,7 +1572,7 @@ export const siteDataFinal = [
     longitude: -94.1246,
     product_name: "HOT DOG FCS",
     sum_of_sale: 2.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Arkansas",
@@ -1581,7 +1581,7 @@ export const siteDataFinal = [
     longitude: -94.1811,
     product_name: "SLC PZ PEPPRNI 13IN FCS",
     sum_of_sale: 2.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Arkansas",
@@ -1590,7 +1590,7 @@ export const siteDataFinal = [
     longitude: -94.1811,
     product_name: "G87E10S",
     sum_of_sale: 33.058,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Arkansas",
@@ -1599,7 +1599,7 @@ export const siteDataFinal = [
     longitude: -94.1246,
     product_name: "No Lead Plus",
     sum_of_sale: 4.88,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Arkansas",
@@ -1608,7 +1608,7 @@ export const siteDataFinal = [
     longitude: -94.1246,
     product_name: "G87E10S",
     sum_of_sale: 8.337,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Missouri",
@@ -1617,7 +1617,7 @@ export const siteDataFinal = [
     longitude: -94.5887,
     product_name: "MEDIUM FTN",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Wyoming",
@@ -1626,7 +1626,7 @@ export const siteDataFinal = [
     longitude: -108.468,
     product_name: "MEDIUM FTN",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Wyoming",
@@ -1635,7 +1635,7 @@ export const siteDataFinal = [
     longitude: -108.468,
     product_name: "KOOLEE",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Colorado",
@@ -1644,7 +1644,7 @@ export const siteDataFinal = [
     longitude: -104.911,
     product_name: "MEDIUM FTN",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Colorado",
@@ -1653,7 +1653,7 @@ export const siteDataFinal = [
     longitude: -104.911,
     product_name: "No Lead Plus",
     sum_of_sale: 24.763,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Wyoming",
@@ -1662,7 +1662,7 @@ export const siteDataFinal = [
     longitude: -105.591,
     product_name: "MEDIUM FTN",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Wyoming",
@@ -1671,7 +1671,7 @@ export const siteDataFinal = [
     longitude: -105.591,
     product_name: "No Lead Plus",
     sum_of_sale: 17.811,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Arkansas",
@@ -1680,7 +1680,7 @@ export const siteDataFinal = [
     longitude: -91.5121,
     product_name: "No Lead Plus",
     sum_of_sale: 4.446,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Arkansas",
@@ -1689,7 +1689,7 @@ export const siteDataFinal = [
     longitude: -91.5121,
     product_name: "G87E10S",
     sum_of_sale: 23.204,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Wyoming",
@@ -1698,7 +1698,7 @@ export const siteDataFinal = [
     longitude: -108.431,
     product_name: "MEDIUM FTN",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Wyoming",
@@ -1707,7 +1707,7 @@ export const siteDataFinal = [
     longitude: -108.431,
     product_name: "No Lead Plus",
     sum_of_sale: 13.771,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Oklahoma",
@@ -1716,7 +1716,7 @@ export const siteDataFinal = [
     longitude: -100.878,
     product_name: "KOOLEE",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Arkansas",
@@ -1725,7 +1725,7 @@ export const siteDataFinal = [
     longitude: -92.5383,
     product_name: "G87E10S",
     sum_of_sale: 24.092,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Arkansas",
@@ -1734,7 +1734,7 @@ export const siteDataFinal = [
     longitude: -92.5383,
     product_name: "No Lead Plus",
     sum_of_sale: 17.582,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Iowa",
@@ -1743,7 +1743,7 @@ export const siteDataFinal = [
     longitude: -90.9264,
     product_name: "KOOLEE",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Iowa",
@@ -1752,7 +1752,7 @@ export const siteDataFinal = [
     longitude: -90.9264,
     product_name: "HOT DOG FCS",
     sum_of_sale: 2.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Iowa",
@@ -1761,7 +1761,7 @@ export const siteDataFinal = [
     longitude: -90.9264,
     product_name: "G87E10S",
     sum_of_sale: 25.323,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Oklahoma",
@@ -1770,7 +1770,7 @@ export const siteDataFinal = [
     longitude: -98.3186,
     product_name: "KOOLEE",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Oklahoma",
@@ -1779,7 +1779,7 @@ export const siteDataFinal = [
     longitude: -98.3186,
     product_name: "G87E10S",
     sum_of_sale: 19.826,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Oklahoma",
@@ -1788,7 +1788,7 @@ export const siteDataFinal = [
     longitude: -96.2133,
     product_name: "KOOLEE",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Oklahoma",
@@ -1797,7 +1797,7 @@ export const siteDataFinal = [
     longitude: -96.2133,
     product_name: "G87E10S",
     sum_of_sale: 80.254,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Iowa",
@@ -1806,7 +1806,7 @@ export const siteDataFinal = [
     longitude: -91.7338,
     product_name: "HOT DOG FCS",
     sum_of_sale: 2.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Iowa",
@@ -1815,7 +1815,7 @@ export const siteDataFinal = [
     longitude: -91.7338,
     product_name: "KOOLEE",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Minnesota",
@@ -1824,7 +1824,7 @@ export const siteDataFinal = [
     longitude: -93.1276,
     product_name: "No Lead Plus",
     sum_of_sale: 8.011,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Minnesota",
@@ -1833,7 +1833,7 @@ export const siteDataFinal = [
     longitude: -93.1276,
     product_name: "G87E10S",
     sum_of_sale: 10.699,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Iowa",
@@ -1842,7 +1842,7 @@ export const siteDataFinal = [
     longitude: -91.9226,
     product_name: "SLC PZ PEPPRNI 13IN FCS",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Iowa",
@@ -1851,7 +1851,7 @@ export const siteDataFinal = [
     longitude: -91.9226,
     product_name: "G87E10S",
     sum_of_sale: 8.143,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Iowa",
@@ -1860,7 +1860,7 @@ export const siteDataFinal = [
     longitude: -91.906,
     product_name: "HOT DOG FCS",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Iowa",
@@ -1869,7 +1869,7 @@ export const siteDataFinal = [
     longitude: -91.906,
     product_name: "G87E10S",
     sum_of_sale: 42.69,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Oklahoma",
@@ -1878,7 +1878,7 @@ export const siteDataFinal = [
     longitude: -94.6289,
     product_name: "G87E10S",
     sum_of_sale: 12.616,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Nebraska",
@@ -1887,7 +1887,7 @@ export const siteDataFinal = [
     longitude: -100.105,
     product_name: "HOT DOG FCS",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Nebraska",
@@ -1896,7 +1896,7 @@ export const siteDataFinal = [
     longitude: -100.105,
     product_name: "G87E10S",
     sum_of_sale: 8.392,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Nebraska",
@@ -1905,7 +1905,7 @@ export const siteDataFinal = [
     longitude: -100.105,
     product_name: "No Lead Plus",
     sum_of_sale: 33.549,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "South Dakota",
@@ -1914,7 +1914,7 @@ export const siteDataFinal = [
     longitude: -98.4081,
     product_name: "HOT DOG FCS",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Colorado",
@@ -1923,7 +1923,7 @@ export const siteDataFinal = [
     longitude: -104.998,
     product_name: "SLC PZ PEPPRNI 13IN FCS",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Oklahoma",
@@ -1932,7 +1932,7 @@ export const siteDataFinal = [
     longitude: -99.8677,
     product_name: "KOOLEE",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Oklahoma",
@@ -1941,7 +1941,7 @@ export const siteDataFinal = [
     longitude: -99.8677,
     product_name: "G87E10S",
     sum_of_sale: 45.345,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Iowa",
@@ -1950,7 +1950,7 @@ export const siteDataFinal = [
     longitude: -92.22,
     product_name: "G87E10S",
     sum_of_sale: 2.44,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Colorado",
@@ -1959,7 +1959,7 @@ export const siteDataFinal = [
     longitude: -104.963,
     product_name: "SLC PZ PEPPRNI 13IN FCS",
     sum_of_sale: 3.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Iowa",
@@ -1968,7 +1968,7 @@ export const siteDataFinal = [
     longitude: -94.0176,
     product_name: "G87E10S",
     sum_of_sale: 36.659,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Iowa",
@@ -1977,7 +1977,7 @@ export const siteDataFinal = [
     longitude: -95.1451,
     product_name: "SLC PZ PEPPRNI 13IN FCS",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Iowa",
@@ -1986,7 +1986,7 @@ export const siteDataFinal = [
     longitude: -95.1451,
     product_name: "No Lead Plus",
     sum_of_sale: 4.24,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Missouri",
@@ -1995,7 +1995,7 @@ export const siteDataFinal = [
     longitude: -93.9646,
     product_name: "SLC PZ PEPPRNI 13IN FCS",
     sum_of_sale: 1.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Missouri",
@@ -2004,7 +2004,7 @@ export const siteDataFinal = [
     longitude: -93.9646,
     product_name: "MEDIUM FTN",
     sum_of_sale: 2.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Missouri",
@@ -2013,7 +2013,7 @@ export const siteDataFinal = [
     longitude: -93.9646,
     product_name: "G87E10S",
     sum_of_sale: 14.493,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Iowa",
@@ -2022,7 +2022,7 @@ export const siteDataFinal = [
     longitude: -95.3054,
     product_name: "SLC PZ PEPPRNI 13IN FCS",
     sum_of_sale: 2.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Iowa",
@@ -2031,7 +2031,7 @@ export const siteDataFinal = [
     longitude: -95.3054,
     product_name: "G87E10S",
     sum_of_sale: 8.478,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Iowa",
@@ -2040,7 +2040,7 @@ export const siteDataFinal = [
     longitude: -95.3054,
     product_name: "No Lead Plus",
     sum_of_sale: 14.693,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Oklahoma",
@@ -2049,7 +2049,7 @@ export const siteDataFinal = [
     longitude: -96.3633,
     product_name: "MEDIUM FTN",
     sum_of_sale: 2.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Oklahoma",
@@ -2058,7 +2058,7 @@ export const siteDataFinal = [
     longitude: -96.3633,
     product_name: "G87E10S",
     sum_of_sale: 19.152,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Colorado",
@@ -2067,7 +2067,7 @@ export const siteDataFinal = [
     longitude: -104.978,
     product_name: "SLC PZ PEPPRNI 13IN FCS",
     sum_of_sale: 2.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Colorado",
@@ -2076,7 +2076,7 @@ export const siteDataFinal = [
     longitude: -104.978,
     product_name: "No Lead Plus",
     sum_of_sale: 15.395,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Iowa",
@@ -2085,7 +2085,7 @@ export const siteDataFinal = [
     longitude: -91.7603,
     product_name: "FIREBALL WHSKY 50ML",
     sum_of_sale: 2.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Iowa",
@@ -2094,7 +2094,7 @@ export const siteDataFinal = [
     longitude: -91.7603,
     product_name: "G87E10S",
     sum_of_sale: 10.679,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Iowa",
@@ -2103,7 +2103,7 @@ export const siteDataFinal = [
     longitude: -92.0057,
     product_name: "G87E10S",
     sum_of_sale: 23.227,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Iowa",
@@ -2112,7 +2112,7 @@ export const siteDataFinal = [
     longitude: -91.893,
     product_name: "G87E10S",
     sum_of_sale: 8.133,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Oklahoma",
@@ -2121,7 +2121,7 @@ export const siteDataFinal = [
     longitude: -98.3491,
     product_name: "HOT DOG FCS",
     sum_of_sale: 4.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Iowa",
@@ -2130,7 +2130,7 @@ export const siteDataFinal = [
     longitude: -94.9825,
     product_name: "G87E10S",
     sum_of_sale: 5.431,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Iowa",
@@ -2139,7 +2139,7 @@ export const siteDataFinal = [
     longitude: -94.9825,
     product_name: "No Lead Plus",
     sum_of_sale: 13.397,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Minnesota",
@@ -2148,7 +2148,7 @@ export const siteDataFinal = [
     longitude: -93.707,
     product_name: "No Lead Plus",
     sum_of_sale: 24.465,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Minnesota",
@@ -2157,7 +2157,7 @@ export const siteDataFinal = [
     longitude: -93.707,
     product_name: "G87E10S",
     sum_of_sale: 15.171,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "South Dakota",
@@ -2166,7 +2166,7 @@ export const siteDataFinal = [
     longitude: -98.6973,
     product_name: "KOOLEE",
     sum_of_sale: 2.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "South Dakota",
@@ -2175,7 +2175,7 @@ export const siteDataFinal = [
     longitude: -98.6973,
     product_name: "G87E10S",
     sum_of_sale: 21.47,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Iowa",
@@ -2184,7 +2184,7 @@ export const siteDataFinal = [
     longitude: -95.1503,
     product_name: "FIREBALL WHSKY 50ML",
     sum_of_sale: 3.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Iowa",
@@ -2193,7 +2193,7 @@ export const siteDataFinal = [
     longitude: -95.1503,
     product_name: "G87E10S",
     sum_of_sale: 24.471,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Iowa",
@@ -2202,7 +2202,7 @@ export const siteDataFinal = [
     longitude: -92.7869,
     product_name: "No Lead Plus",
     sum_of_sale: 6.653,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Iowa",
@@ -2211,7 +2211,7 @@ export const siteDataFinal = [
     longitude: -92.7869,
     product_name: "G87E10S",
     sum_of_sale: 46.091,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Oklahoma",
@@ -2220,7 +2220,7 @@ export const siteDataFinal = [
     longitude: -96.124,
     product_name: "SLC PZ PEPPRNI 13IN FCS",
     sum_of_sale: 2.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Oklahoma",
@@ -2229,7 +2229,7 @@ export const siteDataFinal = [
     longitude: -96.124,
     product_name: "G87E10S",
     sum_of_sale: 9.986,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Oklahoma",
@@ -2238,7 +2238,7 @@ export const siteDataFinal = [
     longitude: -96.124,
     product_name: "No Lead Plus",
     sum_of_sale: 11.841,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Iowa",
@@ -2247,7 +2247,7 @@ export const siteDataFinal = [
     longitude: -92.5839,
     product_name: "G87E10S",
     sum_of_sale: 11.06,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Arkansas",
@@ -2256,7 +2256,7 @@ export const siteDataFinal = [
     longitude: -91.5728,
     product_name: "SLC PZ PEPPRNI 13IN FCS",
     sum_of_sale: 5.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Arkansas",
@@ -2265,7 +2265,7 @@ export const siteDataFinal = [
     longitude: -91.5728,
     product_name: "KOOLEE",
     sum_of_sale: 3.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Arkansas",
@@ -2274,7 +2274,7 @@ export const siteDataFinal = [
     longitude: -91.5728,
     product_name: "G87E10S",
     sum_of_sale: 34.282,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Nebraska",
@@ -2283,7 +2283,7 @@ export const siteDataFinal = [
     longitude: -100.259,
     product_name: "KOOLEE",
     sum_of_sale: 4.0,
-    product_unit: "pax"
+    product_unit: "pack(s)"
   },
   {
     state_province: "Missouri",
@@ -2292,7 +2292,7 @@ export const siteDataFinal = [
     longitude: -92.3341,
     product_name: "G87E10S",
     sum_of_sale: 5.215,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Missouri",
@@ -2301,7 +2301,7 @@ export const siteDataFinal = [
     longitude: -92.3313,
     product_name: "G87E10S",
     sum_of_sale: 20.647,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Arkansas",
@@ -2310,7 +2310,7 @@ export const siteDataFinal = [
     longitude: -92.191,
     product_name: "G87E10S",
     sum_of_sale: 60.613,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Arkansas",
@@ -2319,7 +2319,7 @@ export const siteDataFinal = [
     longitude: -92.2863,
     product_name: "No Lead Plus",
     sum_of_sale: 2.998,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Arkansas",
@@ -2328,7 +2328,7 @@ export const siteDataFinal = [
     longitude: -92.2863,
     product_name: "G87E10S",
     sum_of_sale: 45.595,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Oklahoma",
@@ -2337,7 +2337,7 @@ export const siteDataFinal = [
     longitude: -98.3596,
     product_name: "No Lead Plus",
     sum_of_sale: 9.729,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Oklahoma",
@@ -2346,7 +2346,7 @@ export const siteDataFinal = [
     longitude: -98.3596,
     product_name: "G87E10S",
     sum_of_sale: 20.265,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Oklahoma",
@@ -2355,7 +2355,7 @@ export const siteDataFinal = [
     longitude: -98.363,
     product_name: "G87E10S",
     sum_of_sale: 21.857,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Arkansas",
@@ -2364,7 +2364,7 @@ export const siteDataFinal = [
     longitude: -94.4614,
     product_name: "G87E10S",
     sum_of_sale: 11.563,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Missouri",
@@ -2373,7 +2373,7 @@ export const siteDataFinal = [
     longitude: -94.799,
     product_name: "No Lead Plus",
     sum_of_sale: 5.265,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Missouri",
@@ -2382,7 +2382,7 @@ export const siteDataFinal = [
     longitude: -94.799,
     product_name: "G87E10S",
     sum_of_sale: 9.013,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Missouri",
@@ -2391,7 +2391,7 @@ export const siteDataFinal = [
     longitude: -92.2606,
     product_name: "G87E10S",
     sum_of_sale: 27.528,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Oklahoma",
@@ -2400,7 +2400,7 @@ export const siteDataFinal = [
     longitude: -95.9867,
     product_name: "No Lead Plus",
     sum_of_sale: 5.653,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Missouri",
@@ -2409,7 +2409,7 @@ export const siteDataFinal = [
     longitude: -94.5834,
     product_name: "G87E10S",
     sum_of_sale: 4.764,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Wyoming",
@@ -2418,7 +2418,7 @@ export const siteDataFinal = [
     longitude: -108.39,
     product_name: "No Lead Plus",
     sum_of_sale: 4.589,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Oklahoma",
@@ -2427,7 +2427,7 @@ export const siteDataFinal = [
     longitude: -98.4228,
     product_name: "G87E10S",
     sum_of_sale: 4.512,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Iowa",
@@ -2436,7 +2436,7 @@ export const siteDataFinal = [
     longitude: -94.9895,
     product_name: "G87E10S",
     sum_of_sale: 10.798,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Oklahoma",
@@ -2445,7 +2445,7 @@ export const siteDataFinal = [
     longitude: -98.4358,
     product_name: "G87E10S",
     sum_of_sale: 18.702,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Iowa",
@@ -2454,7 +2454,7 @@ export const siteDataFinal = [
     longitude: -95.1655,
     product_name: "G87E10S",
     sum_of_sale: 18.875,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Iowa",
@@ -2463,7 +2463,7 @@ export const siteDataFinal = [
     longitude: -93.2356,
     product_name: "G87E10S",
     sum_of_sale: 20.0,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
   {
     state_province: "Iowa",
@@ -2472,6 +2472,6 @@ export const siteDataFinal = [
     longitude: -91.7338,
     product_name: "G87E10S",
     sum_of_sale: 22.567,
-    product_unit: "US gallon"
+    product_unit: "US gallon(s)"
   },
 ];
