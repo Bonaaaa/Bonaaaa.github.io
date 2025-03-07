@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Sales Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <style>
+      body { 
+        font-family: Arial, sans-serif; 
+        margin: 20px; 
+        text-align: center; 
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+      h1 { margin-bottom: 20px; }
+      section { margin-bottom: 40px; }
+      .dashboard {
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+        gap: 20px; 
+        flex: 1;
+      }
+      .chart-container, .map-container {
+        width: 100%;
+        max-width: 800px;
+      }
+      .map-container {
+        height: 500px;
+        border-radius: 10px;
+      }
+      footer {
+        text-align: center;
+        padding: 10px;
+        font-size: 0.9em;
+        color: #666;
+        border-top: 1px solid #ddd;
+      }
+      /* Responsive adjustments */
+      @media (max-width: 600px) {
+        .map-container {
+          height: 300px;
+        }
+      }
+  </style>
+</head>
+<body>
+  <h1>Sales of AB Corp's Product Lines across TECA Retail Stores - December 2024</h1>
+  
+  <!-- Dashboard for Fuel Products -->
+  <section id="gallonsSection">
+    <h2>Fuel Products</h2>
+    <div class="dashboard">
+      <div class="chart-container">
+        <canvas id="myChartGallons"></canvas>
+      </div>
+      <div class="map-container" id="mapGallons"></div>
+    </div>
+  </section>
+  
+  <!-- Dashboard for Fast Moving Consumer Goods -->
+  <section id="packsSection">
+    <h2>Fast Moving Consumer Goods</h2>
+    <div class="dashboard">
+      <div class="chart-container">
+        <canvas id="myChartPacks"></canvas>
+      </div>
+      <div class="map-container" id="mapPacks"></div>
+    </div>
+  </section>
+  
+  <footer>
+    &copy; 2025 AB Corp. by BayuBona_. All rights reserved.
+  </footer>
+
+  <!-- Main Script -->
+  <script type="module">
+    import { datasets, states, stateCoordinates, fuelStateSales, fmcgStateSales, autoSetYAxisMax, siteDataFinal } from './resources.js';
+
+    // Split datasets based on product unit type:
+    const usGallonProducts = ["G87E10S", "No Lead Plus"];
+    const datasetsGallons = datasets.filter(ds => usGallonProducts.includes(ds.label));
+    const datasetsPacks = datasets.filter(ds => !usGallonProducts.includes(ds.label));
+    
+    // Use siteDataFinal from resources.js as store data.
+    const siteData = siteDataFinal;
+
+    // Initial map view settings.
+    const initialMapView = { center: [37.8, -96], zoom: 4 };
+
+    // Reusable function: Create a map with state bubble markers.
+    // aggregatedSales is an object with aggregated totals per state.
+    // For Fuel dashboard, tooltip total is formatted to 3 decimals.
+    function createMap(mapId, aggregatedSales) {
+      const mapInstance = L.map(mapId).setView(initialMapView.center, initialMapView.zoom);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+      }).addTo(mapInstance);
+      
+      const stateMarkersObj = {};
+      const maxTotal = Math.max(...Object.values(aggregatedSales));
+      states.forEach(state => {
+        const total = aggregatedSales[state] || 0;
+        const tooltipTotal = (mapId === "mapGallons") ? Number(total).toFixed(3) : total;
+        const radius = 5 + (total / maxTotal) * 20;
+        const coords = stateCoordinates[state] || {lat: 0, lon: 0};
+        const marker = L.circleMarker([coords.lat, coords.lon], {
+          radius: radius,
+          fillColor: "blue",
+          color: "blue",
+          weight: 1,
+          opacity: 1,
+          fillOpacity: 0.6
+        }).addTo(mapInstance);
+        marker.bindTooltip(`${state}<br>Total sales: ${tooltipTotal} units`, { permanent: false, direction: 'top' });
+        stateMarkersObj[state] = marker;
+      });
+      return { mapInstance, stateMarkersObj, storeMarkers: [] };
+    }
+
+    // Reusable function: Update store markers for a given state and product on a given map.
+    function updateStoreMarkersForStateAndProduct(stateName, productName, mapObj) {
+      mapObj.storeMarkers.forEach(marker => mapObj.mapInstance.removeLayer(marker));
+      mapObj.storeMarkers = [];
+      const filteredStores = siteData.filter(store =>
+        store.state_province === stateName && store.product_name === productName
+      );
+      const greenIcon = L.icon({
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png',
+        shadowUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+      });
+      filteredStores.forEach(store => {
+        const marker = L.marker([store.latitude, store.longitude], { icon: greenIcon }).addTo(mapObj.mapInstance);
+        marker.bindTooltip(
+          `<b>${store.site_name}</b><br>Product: ${store.product_name}<br>Sales: ${store.sum_of_sale} ${store.product_unit}`,
+          { permanent: false, direction: "top" }
+        );
+        mapObj.storeMarkers.push(marker);
+      });
+    }
+
+    // Reusable function: Create a Chart.js bar chart with interactive onClick behavior.
+    // The isGallonChart flag tells the function which custom y-axis rules to use.
+    function createChart(canvasId, chartDatasets, mapObj, isGallonChart) {
+      let lastSelectedState = "";
+      let lastSelectedProduct = "";
+      const ctx = document.getElementById(canvasId).getContext('2d');
+      return new Chart(ctx, {
+        type: 'bar',
+        data: { labels: states, datasets: chartDatasets },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              position: 'bottom',
+              onClick: function(e, legendItem) {
+                const ci = this.chart;
+                const index = legendItem.datasetIndex;
+                const meta = ci.getDatasetMeta(index);
+                meta.hidden = !meta.hidden; // toggle visibility
+                
+                if (isGallonChart) {
+                  // Custom y-axis limits for Fuel chart:
+                  let ds0Hidden = ci.getDatasetMeta(0).hidden;
+                  let ds1Hidden = ci.getDatasetMeta(1).hidden;
+                  if (!ds0Hidden && !ds1Hidden) {
+                    ci.options.scales.y.max = 900;
+                  } else if (ds0Hidden && !ds1Hidden) {
+                    ci.options.scales.y.max = 150;
+                  } else if (!ds0Hidden && ds1Hidden) {
+                    ci.options.scales.y.max = 750;
+                  } else {
+                    ci.options.scales.y.max = 900;
+                  }
+                } else {
+                  // For FMCG chart, dynamically calculate y-axis max:
+                  ci.options.scales.y.max = autoSetYAxisMax(ci, states);
+                }
+                ci.update();
+              }
+            }
+          },
+          onClick: function(event) {
+            const elements = this.getElementsAtEventForMode(event, 'nearest', { intersect: true }, true);
+            if (elements.length > 0) {
+              const element = elements[0];
+              const stateIndex = element.index;
+              const datasetIndex = element.datasetIndex;
+              const stateName = states[stateIndex];
+              const productName = this.data.datasets[datasetIndex].label;
+              const stateInfo = isGallonChart ? fuelStateSales[stateName] : fmcgStateSales[stateName];
+              if (lastSelectedState === stateName && lastSelectedProduct === productName) {
+                mapObj.mapInstance.setView(initialMapView.center, initialMapView.zoom);
+                mapObj.storeMarkers.forEach(marker => mapObj.mapInstance.removeLayer(marker));
+                mapObj.storeMarkers = [];
+                const originalTooltip = `${stateName}<br>Total sales: ${stateInfo} units`;
+                if (mapObj.stateMarkersObj[stateName]) {
+                  mapObj.stateMarkersObj[stateName].setTooltipContent(originalTooltip);
+                }
+                lastSelectedState = "";
+                lastSelectedProduct = "";
+              } else {
+                lastSelectedState = stateName;
+                lastSelectedProduct = productName;
+                mapObj.mapInstance.setView([stateCoordinates[stateName].lat, stateCoordinates[stateName].lon], 7);
+                updateStoreMarkersForStateAndProduct(stateName, productName, mapObj);
+                const filteredStores = siteData.filter(store =>
+                  store.state_province === stateName && store.product_name === productName
+                );
+                let productTotal = 0;
+                let productUnit = "";
+                filteredStores.forEach(store => {
+                  productTotal += Number(store.sum_of_sale);
+                });
+                if (filteredStores.length > 0) {
+                  productUnit = filteredStores[0].product_unit;
+                }
+                let formattedTotal = productTotal;
+                if (isGallonChart && usGallonProducts.includes(productName)) {
+                  formattedTotal = productTotal.toFixed(3);
+                }
+                const newTooltip = `Product: ${productName}<br>Total sales: ${formattedTotal} ${productUnit}`;
+                if (mapObj.stateMarkersObj[stateName]) {
+                  mapObj.stateMarkersObj[stateName].setTooltipContent(newTooltip);
+                }
+              }
+            }
+          },
+          scales: {
+            x: { 
+              stacked: true, 
+              title: { display: true, text: 'States' } 
+            },
+            y: { 
+              stacked: true, 
+              title: { display: true, text: 'Units Sold' },
+              max: isGallonChart ? 900 : undefined
+            }
+          }
+        }
+      });
+    }
+
+    // Create maps for Fuel and FMCG dashboards using the aggregated sales from resources.js.
+    const gallonsMap = createMap("mapGallons", fuelStateSales);
+    const packsMap = createMap("mapPacks", fmcgStateSales);
+
+    // Create charts with custom logic.
+    const chartGallons = createChart("myChartGallons", datasetsGallons, gallonsMap, true);
+    const chartPacks = createChart("myChartPacks", datasetsPacks, packsMap, false);
+  </script>
+</body>
+</html>
