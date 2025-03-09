@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>D Enterprises Logistic Network</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <style>
+    #map { height: 600px; }
+    footer {
+      text-align: center;
+      font-size: 12px;
+      padding: 10px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: #f1f1f1;
+      color: #555;
+    }
+
+    body { 
+        font-family: Arial, sans-serif; 
+        margin: 20px; 
+        text-align: center; 
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+  </style>
+</head>
+<body>
+  <h1>D Enterprises Logistic Network - Warehouse Serving Route for TECA Stores - January 2025</h1>
+  <div id="map"></div>
+
+  <!-- Footer -->
+  <footer>
+    © openrouteservice.org by HeiGIT | Map data © OpenStreetMap contributors | © 2025 D Enterprises. by BayuBona_. All rights reserved.
+  </footer>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <!-- Main application script using ES module to import data from logistic.js and routes.js -->
+  <script type="module">
+    // Import the datasets from logistic.js and routesData from routes.js
+    import { warehouseLocations, storeLocations, logisticNetwork } from './logistic.js';
+    import { routesData } from './routes.js';
+
+    // Define the initial map center and zoom level
+    const initialCenter = [37.8, -101];
+    const initialZoom = 5;  // Adjust zoom level as desired
+
+    // Initialize the map
+    const map = L.map('map').setView(initialCenter, initialZoom);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Define custom icons
+    // House icon (brown) for warehouses
+    const warehouseIcon = L.icon({
+      iconUrl: 'https://cdn-icons-png.flaticon.com/512/1946/1946436.png', // House icon
+      iconSize: [32, 32],
+      iconAnchor: [16, 32],
+      popupAnchor: [0, -32]
+    });
+
+    // Array to hold store markers added when a warehouse is clicked
+    let storeMarkers = [];
+    // Variable to track the currently selected warehouse (if any)
+    let selectedWarehouse = null;
+    // Variable to hold the currently displayed route layer (GeoJSON)
+    let routeLayer = null;
+    // Variable to store the currently opened popup (for route info)
+    let currentPopup = null;
+
+    // Create warehouse markers using warehouseLocations data
+    warehouseLocations.forEach(warehouse => {
+      // Find the corresponding logistic network entry for this warehouse
+      const network = logisticNetwork.find(net => net.name === warehouse.name);
+      // Build custom tooltip content for the warehouse marker using logisticNetwork data
+      const warehouseTooltipContent = `
+        Warehouse: <strong>${warehouse.name}</strong><br>
+        Location: ${network ? network.address : 'N/A'}<br>
+        Stores served: ${network ? network.reachableStoreCount : 0}
+      `;
+      const marker = L.marker([warehouse.latitude, warehouse.longitude], { icon: warehouseIcon }).addTo(map);
+      // Bind tooltip for hover on warehouse marker
+      marker.bindTooltip(warehouseTooltipContent);
+
+      marker.on('click', () => {
+        // If the same warehouse is clicked again, clear the markers, route and reset the map view
+        if (selectedWarehouse && selectedWarehouse.name === warehouse.name) {
+          storeMarkers.forEach(m => map.removeLayer(m));
+          storeMarkers = [];
+          selectedWarehouse = null;
+          if (routeLayer) {
+            map.removeLayer(routeLayer);
+            routeLayer = null;
+          }
+          map.setView(initialCenter, initialZoom);
+          return;
+        }
+        // Otherwise, update the currently selected warehouse
+        selectedWarehouse = warehouse;
+
+        // Remove previous store markers and route (if any)
+        storeMarkers.forEach(m => map.removeLayer(m));
+        storeMarkers = [];
+        if (routeLayer) {
+          map.removeLayer(routeLayer);
+          routeLayer = null;
+        }
+
+        // Lookup logistic network details for the clicked warehouse
+        const logisticData = logisticNetwork.find(net => net.name === warehouse.name);
+        if (!logisticData) {
+          console.error(`No logistic network data for warehouse ${warehouse.name}`);
+          return;
+        }
+
+        // For each served store in logisticData, find its details from storeLocations
+        logisticData.servedStores.forEach(storeName => {
+          const store = storeLocations.find(s => s.site_name === storeName);
+          if (store) {
+            // Create store marker using default Leaflet marker
+            const storeMarker = L.marker([store.latitude, store.longitude]).addTo(map);
+            // Bind tooltip with custom content: bold store name centered and "Truckload route"
+            storeMarker.bindTooltip(
+              `<div style="text-align:center;">
+                 <strong>${store.site_name}</strong><br>
+                 <span>Truckload route</span>
+               </div>`
+            );
+            // When a store marker is clicked, show route info and add the GeoJSON route
+            storeMarker.on('click', () => {
+              // Close the current open popup if it's still open
+              if (currentPopup) {
+                currentPopup.remove();
+              }
+              
+              // Remove any previous routeLayer if it exists
+              if (routeLayer) {
+                map.removeLayer(routeLayer);
+                routeLayer = null;
+              }
+              
+              // Check if route data (including geometry) is available for the selected warehouse to this store
+              if (selectedWarehouse &&
+                  routesData[selectedWarehouse.name] &&
+                  routesData[selectedWarehouse.name][store.site_name] &&
+                  routesData[selectedWarehouse.name][store.site_name].geometry) {
+                const routeInfo = routesData[selectedWarehouse.name][store.site_name];
+                const popupContent = `
+                  <div style="text-align:center;">
+                    <strong>Route Info</strong><br>
+                    Distance: ${routeInfo.distance} ${routeInfo.unit}<br>
+                    Duration: ${routeInfo.duration}<br>
+                    Vehicle: ${routeInfo.vehicle}
+                  </div>
+                `;
+                // Use the stored geometry from routesData and add it as a GeoJSON layer
+                routeLayer = L.geoJSON(routeInfo.geometry, {
+                  style: { color: 'blue', weight: 5, opacity: 0.8 }
+                }).addTo(map);
+
+                // Open the route info popup on the store marker
+                currentPopup = storeMarker.bindPopup(popupContent).openPopup();
+              } else {
+                currentPopup = storeMarker.bindPopup("No route data available").openPopup();
+              }
+            });
+            storeMarkers.push(storeMarker);
+          } else {
+            console.warn(`Store ${storeName} not found in storeLocations`);
+          }
+        });
+
+        // Adjust the map view to include both the warehouse and its served stores
+        const groupMarkers = [L.marker([warehouse.latitude, warehouse.longitude], { icon: warehouseIcon }), ...storeMarkers];
+        const group = new L.featureGroup(groupMarkers);
+        map.fitBounds(group.getBounds());
+      });
+    });
+  </script>
+</body>
+</html>
