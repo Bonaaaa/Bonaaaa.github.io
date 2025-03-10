@@ -18,15 +18,19 @@
       background-color: #f1f1f1;
       color: #555;
     }
-
     body { 
-        font-family: Arial, sans-serif; 
-        margin: 20px; 
-        text-align: center; 
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-      }
+      font-family: Arial, sans-serif; 
+      margin: 20px; 
+      text-align: center; 
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    /* CSS for lift effect */
+    .leaflet-marker-icon.lifted {
+      transform: translateY(-10px) scale(1.1);
+      transition: transform 0.3s ease;
+    }
   </style>
 </head>
 <body>
@@ -40,11 +44,29 @@
 
   <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-  <!-- Main application script using ES module to import data from logistic.js and routes.js -->
+  <!-- Main application script using ES module to import data from optimizedlogistic.js, routes.js and optimizedroutes.js -->
   <script type="module">
-    // Import the datasets from logistic.js and routesData from routes.js
-    import { warehouseLocations, storeLocations, logisticNetwork } from './logistic.js';
-    import { routesData } from './routes.js';
+    // Import logistic data
+    import { warehouseLocations, storeLocations, logisticNetwork } from './optimizedlogistic.js';
+    // Import route data from both sources
+    import { routesData as routesDataRegular } from './routes.js';
+    import { routesData as routesDataOptimized } from './optimizedroutes.js';
+
+    // Merge the two route data objects into combinedRoutesData.
+    const combinedRoutesData = {};
+
+    // Add regular routes first.
+    Object.keys(routesDataRegular).forEach(warehouse => {
+      combinedRoutesData[warehouse] = { ...routesDataRegular[warehouse] };
+    });
+
+    // Then merge in the optimized routes (they may add new entries or override existing ones).
+    Object.keys(routesDataOptimized).forEach(warehouse => {
+      if (!combinedRoutesData[warehouse]) {
+        combinedRoutesData[warehouse] = {};
+      }
+      Object.assign(combinedRoutesData[warehouse], routesDataOptimized[warehouse]);
+    });
 
     // Define the initial map center and zoom level
     const initialCenter = [37.8, -101];
@@ -73,6 +95,8 @@
     let routeLayer = null;
     // Variable to store the currently opened popup (for route info)
     let currentPopup = null;
+    // Variable to store the currently "lifted" marker element
+    let liftedMarkerElement = null;
 
     // Create warehouse markers using warehouseLocations data
     warehouseLocations.forEach(warehouse => {
@@ -111,6 +135,14 @@
           map.removeLayer(routeLayer);
           routeLayer = null;
         }
+        // Also close any open popup
+        map.closePopup();
+        currentPopup = null;
+        // Reset any lifted marker if exists
+        if (liftedMarkerElement) {
+          liftedMarkerElement.classList.remove("lifted");
+          liftedMarkerElement = null;
+        }
 
         // Lookup logistic network details for the clicked warehouse
         const logisticData = logisticNetwork.find(net => net.name === warehouse.name);
@@ -132,25 +164,35 @@
                  <span>Truckload route</span>
                </div>`
             );
-            // When a store marker is clicked, show route info and add the GeoJSON route
+            // Bring the marker to front on mouseover (for overlapping effect)
+            storeMarker.on('mouseover', () => {
+              storeMarker.setZIndexOffset(1000);
+            });
+            storeMarker.on('mouseout', () => {
+              storeMarker.setZIndexOffset(0);
+            });
+            // When a store marker is clicked, show route info, add the GeoJSON route, and apply a lift effect
             storeMarker.on('click', () => {
-              // Close the current open popup if it's still open
-              if (currentPopup) {
-                currentPopup.remove();
-              }
-              
+              // Close any existing popup before opening a new one
+              map.closePopup();
+              currentPopup = null;
               // Remove any previous routeLayer if it exists
               if (routeLayer) {
                 map.removeLayer(routeLayer);
                 routeLayer = null;
               }
+              // Remove the lift effect from any previously lifted marker
+              if (liftedMarkerElement) {
+                liftedMarkerElement.classList.remove("lifted");
+                liftedMarkerElement = null;
+              }
               
               // Check if route data (including geometry) is available for the selected warehouse to this store
               if (selectedWarehouse &&
-                  routesData[selectedWarehouse.name] &&
-                  routesData[selectedWarehouse.name][store.site_name] &&
-                  routesData[selectedWarehouse.name][store.site_name].geometry) {
-                const routeInfo = routesData[selectedWarehouse.name][store.site_name];
+                  combinedRoutesData[selectedWarehouse.name] &&
+                  combinedRoutesData[selectedWarehouse.name][store.site_name] &&
+                  combinedRoutesData[selectedWarehouse.name][store.site_name].geometry) {
+                const routeInfo = combinedRoutesData[selectedWarehouse.name][store.site_name];
                 const popupContent = `
                   <div style="text-align:center;">
                     <strong>Route Info</strong><br>
@@ -159,15 +201,27 @@
                     Vehicle: ${routeInfo.vehicle}
                   </div>
                 `;
-                // Use the stored geometry from routesData and add it as a GeoJSON layer
+                // Use the stored geometry from combinedRoutesData and add it as a GeoJSON layer with a blue style
                 routeLayer = L.geoJSON(routeInfo.geometry, {
                   style: { color: 'blue', weight: 5, opacity: 0.8 }
                 }).addTo(map);
-
+                // Zoom in between the warehouse and the clicked store marker
+                const bounds = L.latLngBounds([
+                  [selectedWarehouse.latitude, selectedWarehouse.longitude],
+                  [store.latitude, store.longitude]
+                ]);
+                map.fitBounds(bounds, { padding: [50, 50] });
                 // Open the route info popup on the store marker
                 currentPopup = storeMarker.bindPopup(popupContent).openPopup();
               } else {
                 currentPopup = storeMarker.bindPopup("No route data available").openPopup();
+              }
+              
+              // Apply the lift effect to the clicked store marker's element
+              const markerEl = storeMarker.getElement();
+              if (markerEl) {
+                markerEl.classList.add("lifted");
+                liftedMarkerElement = markerEl;
               }
             });
             storeMarkers.push(storeMarker);
