@@ -20,17 +20,18 @@
       section { margin-bottom: 40px; }
       .dashboard {
         display: flex; 
-        flex-direction: column; 
-        align-items: center; 
+        flex-direction: row; 
+        align-items: flex-start; 
+        justify-content: center;
         gap: 20px; 
         flex: 1;
       }
-      .chart-container, .map-container {
-        width: 100%;
-        max-width: 800px;
+      .chart-container {
+        width: 75%;
       }
       .map-container {
-        height: 500px;
+        width: 25%;
+        height: 450px;
         border-radius: 10px;
       }
       footer {
@@ -40,8 +41,14 @@
         color: #666;
         border-top: 1px solid #ddd;
       }
-      /* Responsive adjustments */
+      /* Responsive adjustments: on small screens, switch to column layout */
       @media (max-width: 600px) {
+        .dashboard {
+          flex-direction: column;
+        }
+        .chart-container, .map-container {
+          width: 100%;
+        }
         .map-container {
           height: 300px;
         }
