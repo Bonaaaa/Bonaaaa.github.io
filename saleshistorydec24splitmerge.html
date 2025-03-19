@@ -41,17 +41,10 @@
         color: #666;
         border-top: 1px solid #ddd;
       }
-      /* Responsive adjustments: on small screens, switch to column layout */
       @media (max-width: 600px) {
-        .dashboard {
-          flex-direction: column;
-        }
-        .chart-container, .map-container {
-          width: 100%;
-        }
-        .map-container {
-          height: 300px;
-        }
+        .dashboard { flex-direction: column; }
+        .chart-container, .map-container { width: 100%; }
+        .map-container { height: 300px; }
       }
   </style>
 </head>
@@ -88,20 +81,13 @@
   <script type="module">
     import { datasets, states, stateCoordinates, fuelStateSales, fmcgStateSales, autoSetYAxisMax, siteDataFinal } from './resources.js';
 
-    // Split datasets based on product unit type:
     const usGallonProducts = ["G87E10S", "No Lead Plus"];
     const datasetsGallons = datasets.filter(ds => usGallonProducts.includes(ds.label));
     const datasetsPacks = datasets.filter(ds => !usGallonProducts.includes(ds.label));
-    
-    // Use siteDataFinal from resources.js as store data.
     const siteData = siteDataFinal;
-
-    // Initial map view settings.
     const initialMapView = { center: [37.8, -96], zoom: 4 };
 
-    // Reusable function: Create a map with state bubble markers.
-    // aggregatedSales is an object with aggregated totals per state.
-    // For Fuel dashboard, tooltip total is formatted to 3 decimals.
+    // Create a map using aggregated sales to set bubble sizes.
     function createMap(mapId, aggregatedSales) {
       const mapInstance = L.map(mapId).setView(initialMapView.center, initialMapView.zoom);
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -112,9 +98,10 @@
       const maxTotal = Math.max(...Object.values(aggregatedSales));
       states.forEach(state => {
         const total = aggregatedSales[state] || 0;
+        // For Fuel dashboard, format total with 3 decimals.
         const tooltipTotal = (mapId === "mapGallons") ? Number(total).toFixed(3) : total;
         const radius = 5 + (total / maxTotal) * 20;
-        const coords = stateCoordinates[state] || {lat: 0, lon: 0};
+        const coords = stateCoordinates[state] || { lat: 0, lon: 0 };
         const marker = L.circleMarker([coords.lat, coords.lon], {
           radius: radius,
           fillColor: "blue",
@@ -129,7 +116,7 @@
       return { mapInstance, stateMarkersObj, storeMarkers: [] };
     }
 
-    // Reusable function: Update store markers for a given state and product on a given map.
+    // Update store markers for a given state and product.
     function updateStoreMarkersForStateAndProduct(stateName, productName, mapObj) {
       mapObj.storeMarkers.forEach(marker => mapObj.mapInstance.removeLayer(marker));
       mapObj.storeMarkers = [];
@@ -152,10 +139,14 @@
         );
         mapObj.storeMarkers.push(marker);
       });
+      // Fit the map view to the bounds of the store markers so all are visible.
+      if (mapObj.storeMarkers.length > 0) {
+        const group = new L.featureGroup(mapObj.storeMarkers);
+        mapObj.mapInstance.fitBounds(group.getBounds().pad(0.2));
+      }
     }
 
-    // Reusable function: Create a Chart.js bar chart with interactive onClick behavior.
-    // The isGallonChart flag tells the function which custom y-axis rules to use.
+    // Create a Chart.js bar chart with interactive behavior.
     function createChart(canvasId, chartDatasets, mapObj, isGallonChart) {
       let lastSelectedState = "";
       let lastSelectedProduct = "";
@@ -172,10 +163,8 @@
                 const ci = this.chart;
                 const index = legendItem.datasetIndex;
                 const meta = ci.getDatasetMeta(index);
-                meta.hidden = !meta.hidden; // toggle visibility
-                
+                meta.hidden = !meta.hidden;
                 if (isGallonChart) {
-                  // Custom y-axis limits for Fuel chart:
                   let ds0Hidden = ci.getDatasetMeta(0).hidden;
                   let ds1Hidden = ci.getDatasetMeta(1).hidden;
                   if (!ds0Hidden && !ds1Hidden) {
@@ -188,7 +177,6 @@
                     ci.options.scales.y.max = 900;
                   }
                 } else {
-                  // For FMCG chart, dynamically calculate y-axis max:
                   ci.options.scales.y.max = autoSetYAxisMax(ci, states);
                 }
                 ci.update();
@@ -208,7 +196,9 @@
                 mapObj.mapInstance.setView(initialMapView.center, initialMapView.zoom);
                 mapObj.storeMarkers.forEach(marker => mapObj.mapInstance.removeLayer(marker));
                 mapObj.storeMarkers = [];
-                const originalTooltip = `${stateName}<br>Total sales: ${stateInfo} units`;
+                const originalTooltip = isGallonChart 
+                  ? `${stateName}<br>Total sales: ${Number(stateInfo).toFixed(3)} units`
+                  : `${stateName}<br>Total sales: ${stateInfo} units`;
                 if (mapObj.stateMarkersObj[stateName]) {
                   mapObj.stateMarkersObj[stateName].setTooltipContent(originalTooltip);
                 }
@@ -217,7 +207,7 @@
               } else {
                 lastSelectedState = stateName;
                 lastSelectedProduct = productName;
-                mapObj.mapInstance.setView([stateCoordinates[stateName].lat, stateCoordinates[stateName].lon], 7);
+                // Update store markers and let updateStoreMarkersForStateAndProduct fit bounds
                 updateStoreMarkersForStateAndProduct(stateName, productName, mapObj);
                 const filteredStores = siteData.filter(store =>
                   store.state_province === stateName && store.product_name === productName
@@ -256,11 +246,9 @@
       });
     }
 
-    // Create maps for Fuel and FMCG dashboards using the aggregated sales from resources.js.
     const gallonsMap = createMap("mapGallons", fuelStateSales);
     const packsMap = createMap("mapPacks", fmcgStateSales);
 
-    // Create charts with custom logic.
     const chartGallons = createChart("myChartGallons", datasetsGallons, gallonsMap, true);
     const chartPacks = createChart("myChartPacks", datasetsPacks, packsMap, false);
   </script>
