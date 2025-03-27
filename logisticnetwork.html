@@ -30,11 +30,61 @@
       transform: translateY(-10px) scale(1.1);
       transition: transform 0.3s ease;
     }
+    /* Sidebar styling */
+    #sidebar {
+      position: fixed;
+      top: 0;
+      right: -300px; /* hidden off-screen initially */
+      width: 280px;
+      height: 100%;
+      background: white;
+      box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+      padding: 20px;
+      transition: right 0.3s ease;
+      overflow-y: auto;
+      z-index: 1000;
+    }
+    /* Sidebar content: align text to left */
+    #sidebar-content {
+      text-align: left;
+    }
+    /* Google Maps–style close button with left arrow */
+    #close-sidebar {
+      position: absolute;
+      left: -20px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+      font-size: 16px;
+      line-height: 28px;
+      text-align: center;
+      color: #333;
+    }
   </style>
 </head>
 <body>
   <h1>D Enterprises Logistic Network - Warehouse Serving Route for TECA Stores - January 2025</h1>
   <div id="map"></div>
+
+  <!-- Sidebar element -->
+  <div id="sidebar">
+    <button id="close-sidebar" title="Close Sidebar">&lt;</button>
+    <div id="sidebar-content">
+      <h2 id="store-name"></h2>
+      <p><strong>Closest Warehouse:</strong> <span id="closest-warehouse"></span></p>
+      <p><strong>Ordered Products:</strong></p>
+      <div id="ordered-products"></div>
+      <hr>
+      <h3>Route Info</h3>
+      <div id="route-info"></div>
+    </div>
+  </div>
 
   <footer>
     © openrouteservice.org by HeiGIT | Map data © OpenStreetMap contributors | © 2025 D Enterprises. by BayuBona_. All rights reserved.
@@ -90,6 +140,8 @@
       marker.bindTooltip(warehouseTooltipContent);
 
       marker.on('click', () => {
+        // Auto-close the sidebar when a warehouse is clicked
+        document.getElementById('sidebar').style.right = "-300px";
         if (selectedWarehouse && selectedWarehouse.name === warehouse.name) {
           storeMarkers.forEach(m => map.removeLayer(m));
           storeMarkers = [];
@@ -126,14 +178,14 @@
           const store = storeLocations.find(s => s.site_name === storeName);
           if (store) {
             const storeOrders = ordervolume.filter(o => o.site_name === storeName);
-            const warehouseName = storeOrders.length > 0 ? storeOrders[0].Warehouse : "Unknown";
+            const currentWarehouseName = storeOrders.length > 0 ? storeOrders[0].Warehouse : "Unknown";
             const orderedProducts = storeOrders.map(o => `${o.product_name}: ${o.order_volume} ${o.product_unit}`).join("<br>");
 
             const storeTooltipContent = `
               <div style="text-align:center;">
                 <strong>${store.site_name}</strong><br>
-                Closest Warehouse: ${warehouseName}<br>
-                <strong>Ordered Products<strong>:<br> ${orderedProducts ? orderedProducts : "No orders"}
+                Closest Warehouse: ${currentWarehouseName}<br>
+                <strong>Ordered Products:</strong><br> ${orderedProducts ? orderedProducts : "No orders"}
               </div>
             `;
 
@@ -148,6 +200,7 @@
             });
 
             storeMarker.on('click', () => {
+              // Remove previous route layer and lifted marker effect
               map.closePopup();
               currentPopup = null;
               if (routeLayer) {
@@ -159,19 +212,12 @@
                 liftedMarkerElement = null;
               }
 
+              // If route info is available, add route layer and update sidebar with route info
               if (selectedWarehouse &&
                   combinedRoutesData[selectedWarehouse.name] &&
                   combinedRoutesData[selectedWarehouse.name][store.site_name] &&
                   combinedRoutesData[selectedWarehouse.name][store.site_name].geometry) {
                 const routeInfo = combinedRoutesData[selectedWarehouse.name][store.site_name];
-                const popupContent = `
-                  <div style="text-align:center;">
-                    <strong>Route Info</strong><br>
-                    Distance: ${routeInfo.distance} ${routeInfo.unit}<br>
-                    Duration: ${routeInfo.duration}<br>
-                    Vehicle: ${routeInfo.vehicle}
-                  </div>
-                `;
                 routeLayer = L.geoJSON(routeInfo.geometry, {
                   style: { color: 'blue', weight: 5, opacity: 0.8 }
                 }).addTo(map);
@@ -179,17 +225,32 @@
                   [selectedWarehouse.latitude, selectedWarehouse.longitude],
                   [store.latitude, store.longitude]
                 ]);
-                map.fitBounds(bounds, { padding: [50, 50] });
-                currentPopup = storeMarker.bindPopup(popupContent).openPopup();
+                // Adjust bounds so that the sidebar doesn't cover the route
+                map.fitBounds(bounds, { paddingTopLeft: [50, 50], paddingBottomRight: [330, 50] });
+                document.getElementById('route-info').innerHTML = `
+                  <p><strong>Distance:</strong> ${routeInfo.distance} ${routeInfo.unit}</p>
+                  <p><strong>Duration:</strong> ${routeInfo.duration}</p>
+                  <p><strong>Vehicle:</strong> ${routeInfo.vehicle}</p>
+                `;
               } else {
-                currentPopup = storeMarker.bindPopup("No route data available").openPopup();
+                document.getElementById('route-info').innerHTML = `<p>No route data available</p>`;
               }
 
+              // Add the "lifted" visual effect to the marker
               const markerEl = storeMarker.getElement();
               if (markerEl) {
                 markerEl.classList.add("lifted");
                 liftedMarkerElement = markerEl;
               }
+
+              // Update and show the sidebar with store information and route info
+              document.getElementById('store-name').textContent = store.site_name;
+              document.getElementById('closest-warehouse').textContent = currentWarehouseName;
+              const productListHTML = storeOrders.length > 0
+                ? storeOrders.map(o => `<p>${o.product_name}: ${o.order_volume} ${o.product_unit}</p>`).join("")
+                : "<p>No orders</p>";
+              document.getElementById('ordered-products').innerHTML = productListHTML;
+              document.getElementById('sidebar').style.right = "0";
             });
             storeMarkers.push(storeMarker);
           }
@@ -198,6 +259,11 @@
         const group = new L.featureGroup([L.marker([warehouse.latitude, warehouse.longitude], { icon: warehouseIcon }), ...storeMarkers]);
         map.fitBounds(group.getBounds());
       });
+    });
+
+    // Sidebar close button functionality
+    document.getElementById('close-sidebar').addEventListener('click', () => {
+      document.getElementById('sidebar').style.right = "-300px";
     });
   </script>
 </body>
