@@ -77,6 +77,8 @@
     <button id="close-sidebar" title="Close Sidebar">&lt;</button>
     <div id="sidebar-content">
       <h2 id="store-name"></h2>
+      <!-- New store address element -->
+      <p id="store-address" style="margin: 0 0 10px 0; font-weight: normal;"></p>
       <p><strong>Closest Warehouse:</strong> <span id="closest-warehouse"></span></p>
       <p><strong>Ordered Products:</strong></p>
       <div id="ordered-products"></div>
@@ -96,6 +98,7 @@
     import { routesData as routesDataRegular } from './routes.js';
     import { routesData as routesDataOptimized } from './optimizedroutes.js';
     import { ordervolume } from './ordervolume.js';
+    import { TECAdress } from './TECAdress.js'; // Import the TECAdress dataset
 
     const combinedRoutesData = {};
     Object.keys(routesDataRegular).forEach(warehouse => {
@@ -229,7 +232,7 @@
                 map.fitBounds(bounds, { paddingTopLeft: [50, 50], paddingBottomRight: [330, 50] });
                 document.getElementById('route-info').innerHTML = `
                   <p><strong>Distance:</strong> ${routeInfo.distance} ${routeInfo.unit}</p>
-                  <p><strong>Duration:</strong> ${routeInfo.duration}</p>
+                  <p><strong>Duration to travel:</strong> ${routeInfo.duration}</p>
                   <p><strong>Vehicle:</strong> ${routeInfo.vehicle}</p>
                 `;
               } else {
@@ -243,13 +246,24 @@
                 liftedMarkerElement = markerEl;
               }
 
-              // Update and show the sidebar with store information and route info
+              // Update the sidebar with store information
               document.getElementById('store-name').textContent = store.site_name;
               document.getElementById('closest-warehouse').textContent = currentWarehouseName;
               const productListHTML = storeOrders.length > 0
                 ? storeOrders.map(o => `<p>${o.product_name}: ${o.order_volume} ${o.product_unit}</p>`).join("")
                 : "<p>No orders</p>";
               document.getElementById('ordered-products').innerHTML = productListHTML;
+
+              // Look up the address using TECAdress dataset
+              const addressData = TECAdress.find(item => item.site_name === store.site_name);
+              if (addressData) {
+                document.getElementById('store-address').textContent =
+                  `${addressData.address}, ${addressData.city}, ${addressData.state_province} ${addressData.zip}`;
+              } else {
+                document.getElementById('store-address').textContent = "Address not available";
+              }
+              
+              // Show the sidebar
               document.getElementById('sidebar').style.right = "0";
             });
             storeMarkers.push(storeMarker);
