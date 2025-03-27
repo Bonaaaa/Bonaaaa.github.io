@@ -88,9 +88,11 @@
     <button id="close-sidebar" title="Close Sidebar">&lt;</button>
     <div id="sidebar-content">
       <h2 id="store-name"></h2>
-      <!-- New store address element -->
       <p id="store-address" style="margin: 0 0 10px 0; font-weight: normal;"></p>
       <p><strong>Closest Warehouse:</strong> <span id="closest-warehouse"></span></p>
+      <!-- NEW: Warehouse Location row -->
+      <p><strong>Warehouse Location:</strong> <span id="warehouse-location"></span></p>
+
       <p><strong>Ordered Products:</strong></p>
       <div id="ordered-products"></div>
       <hr>
@@ -113,6 +115,7 @@
     import { ordervolume } from './ordervolume.js';
     import { TECAdress } from './TECAdress.js'; // Import the TECAdress dataset
 
+    // Merge regular and optimized route data
     const combinedRoutesData = {};
     Object.keys(routesDataRegular).forEach(warehouse => {
       combinedRoutesData[warehouse] = { ...routesDataRegular[warehouse] };
@@ -145,6 +148,7 @@
     let currentPopup = null;
     let liftedMarkerElement = null;
 
+    // Create markers for each warehouse
     warehouseLocations.forEach(warehouse => {
       const network = logisticNetwork.find(net => net.name === warehouse.name);
       const warehouseTooltipContent = `
@@ -155,9 +159,12 @@
       const marker = L.marker([warehouse.latitude, warehouse.longitude], { icon: warehouseIcon }).addTo(map);
       marker.bindTooltip(warehouseTooltipContent);
 
+      // When clicking a warehouse
       marker.on('click', () => {
-        // Auto-close the sidebar when a warehouse is clicked
+        // Auto-close the sidebar
         document.getElementById('sidebar').style.right = "-300px";
+
+        // If the same warehouse is clicked again, reset
         if (selectedWarehouse && selectedWarehouse.name === warehouse.name) {
           storeMarkers.forEach(m => map.removeLayer(m));
           storeMarkers = [];
@@ -170,6 +177,7 @@
           return;
         }
 
+        // Select the new warehouse
         selectedWarehouse = warehouse;
         storeMarkers.forEach(m => map.removeLayer(m));
         storeMarkers = [];
@@ -190,6 +198,7 @@
           return;
         }
 
+        // For each store served by this warehouse
         logisticData.servedStores.forEach(storeName => {
           const store = storeLocations.find(s => s.site_name === storeName);
           if (store) {
@@ -205,6 +214,7 @@
               </div>
             `;
 
+            // Create a store marker
             const storeMarker = L.marker([store.latitude, store.longitude]).addTo(map);
             storeMarker.bindTooltip(storeTooltipContent);
 
@@ -215,8 +225,9 @@
               storeMarker.setZIndexOffset(0);
             });
 
+            // When clicking a store
             storeMarker.on('click', () => {
-              // Remove previous route layer and lifted marker effect
+              // Remove previous route and marker effects
               map.closePopup();
               currentPopup = null;
               if (routeLayer) {
@@ -228,7 +239,7 @@
                 liftedMarkerElement = null;
               }
 
-              // If route info is available, add route layer and update sidebar with route info
+              // If route info is available
               if (selectedWarehouse &&
                   combinedRoutesData[selectedWarehouse.name] &&
                   combinedRoutesData[selectedWarehouse.name][store.site_name] &&
@@ -241,7 +252,7 @@
                   [selectedWarehouse.latitude, selectedWarehouse.longitude],
                   [store.latitude, store.longitude]
                 ]);
-                // Adjust bounds so that the sidebar doesn't cover the route
+                // Adjust map so the route isn't covered by the sidebar
                 map.fitBounds(bounds, { paddingTopLeft: [50, 50], paddingBottomRight: [330, 50] });
                 document.getElementById('route-info').innerHTML = `
                   <p><strong>Distance:</strong> ${routeInfo.distance} ${routeInfo.unit}</p>
@@ -252,22 +263,21 @@
                 document.getElementById('route-info').innerHTML = `<p>No route data available</p>`;
               }
 
-              // Add the "lifted" visual effect to the marker
+              // "Lift" the marker
               const markerEl = storeMarker.getElement();
               if (markerEl) {
                 markerEl.classList.add("lifted");
                 liftedMarkerElement = markerEl;
               }
 
-              // Update the sidebar with store information
+              // Update the sidebar with store details
               document.getElementById('store-name').textContent = store.site_name;
-              document.getElementById('closest-warehouse').textContent = currentWarehouseName;
               const productListHTML = storeOrders.length > 0
                 ? storeOrders.map(o => `<p>${o.product_name}: ${o.order_volume} ${o.product_unit}</p>`).join("")
                 : "<p>No orders</p>";
               document.getElementById('ordered-products').innerHTML = productListHTML;
 
-              // Look up the address using TECAdress dataset
+              // Set the store address from TECAdress
               const addressData = TECAdress.find(item => item.site_name === store.site_name);
               if (addressData) {
                 document.getElementById('store-address').textContent =
@@ -275,40 +285,55 @@
               } else {
                 document.getElementById('store-address').textContent = "Address not available";
               }
-              
-              // Show the sidebar
+
+              // Set the warehouse name
+              document.getElementById('closest-warehouse').textContent = currentWarehouseName;
+
+              // NEW: Show the warehouse location (address) from logisticNetwork
+              const whNetwork = logisticNetwork.find(net => net.name === selectedWarehouse.name);
+              if (whNetwork && whNetwork.address) {
+                document.getElementById('warehouse-location').textContent = whNetwork.address;
+              } else {
+                document.getElementById('warehouse-location').textContent = "No warehouse location info";
+              }
+
+              // Open the sidebar
               document.getElementById('sidebar').style.right = "0";
             });
             storeMarkers.push(storeMarker);
           }
         });
 
-        const group = new L.featureGroup([L.marker([warehouse.latitude, warehouse.longitude], { icon: warehouseIcon }), ...storeMarkers]);
+        // Fit the map to show the warehouse and its served stores
+        const group = new L.featureGroup([
+          L.marker([warehouse.latitude, warehouse.longitude], { icon: warehouseIcon }),
+          ...storeMarkers
+        ]);
         map.fitBounds(group.getBounds());
       });
     });
 
-    // Sidebar close button functionality
+    // Close the sidebar
     document.getElementById('close-sidebar').addEventListener('click', () => {
       document.getElementById('sidebar').style.right = "-300px";
     });
 
-    // Download CSV button functionality
+    // Download CSV with updated columns
     document.getElementById('download-csv').addEventListener('click', () => {
       const storeName = document.getElementById('store-name').textContent.trim();
       const storeAddress = document.getElementById('store-address').textContent.trim();
       const warehouse = document.getElementById('closest-warehouse').textContent.trim();
+      const orderedProductsText = document.getElementById('ordered-products').innerText.trim();
       const routeInfoText = document.getElementById('route-info').innerText.trim();
 
-      // 1. Parse the distance (km) from route info: e.g. "Distance: 1100.44 km"
+      // 1. Parse the distance (km) from route info (e.g., "Distance: 1100.44 km")
       let distanceKm = "";
       const distanceMatch = routeInfoText.match(/Distance:\s*([\d.]+)\s*km/i);
       if (distanceMatch) {
         distanceKm = distanceMatch[1]; // e.g. "1100.44"
       }
 
-      // 2. Parse the hours from route info: e.g. "Duration: 16 hour(s) 32.7 minute(s)"
-      // We'll convert hours + minutes into a decimal
+      // 2. Parse hours from route info for lead-time calculation
       let totalHours = 0;
       const durationMatch = routeInfoText.match(/Duration:\s*([\d.]+)\s*hour\(s\)\s*([\d.]+)\s*minute\(s\)/i);
       if (durationMatch) {
@@ -316,10 +341,9 @@
         const minutes = parseFloat(durationMatch[2]);
         totalHours = hours + (minutes / 60.0);
       } else {
-        // Alternatively, handle a case like "Duration: 16 hour(s) 0 minute(s)"
+        // Alternatively, handle a simpler case like "Duration: 16 hour(s)"
         const shortDurationMatch = routeInfoText.match(/Duration:\s*([\d.]+)\s*hour\(s\)/i);
         if (shortDurationMatch) {
-          // If only hours were found
           totalHours = parseFloat(shortDurationMatch[1]);
         }
       }
@@ -327,25 +351,25 @@
       // 3. Lead time (day) = round up (totalHours / 16)
       const leadTimeDay = Math.ceil(totalHours / 16);
 
-      // CSV columns: Warehouse,TECA Store,Address,Distance (km),Hours to travel,Lead time (day)
-      const csvHeader = "Warehouse,TECA Store,Address,Distance (km),Hours to travel,Lead time (day)\n";
+      // CSV columns:
+      // Warehouse,TECA Store,Address,Distance (km),Ordered Products,Lead time (day)
+      const csvHeader = "Warehouse,TECA Store,Address,Distance (km),Ordered Products,Lead time (day)\n";
       const csvRow = [
-        warehouse,          // Warehouse
-        storeName,          // TECA Store
-        storeAddress,       // Address
-        distanceKm,         // Distance (km)
-        totalHours.toFixed(2), // Hours to travel (2 decimals)
-        leadTimeDay         // Lead time (day)
+        warehouse,             // Warehouse
+        storeName,             // TECA Store
+        storeAddress,          // Address
+        distanceKm,            // Distance (km)
+        orderedProductsText,   // Ordered Products
+        leadTimeDay            // Lead time (day)
       ].map(val => `"${val}"`).join(",");
 
       const csvContent = csvHeader + csvRow + "\n";
 
-      // Create a Blob from the CSV string and trigger a download
+      // Trigger file download
       const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      // Use storeName or some default name if storeName is empty
       const fileName = storeName ? storeName.replace(/\s+/g, "_") + "_info.csv" : "store_info.csv";
       a.download = fileName;
       document.body.appendChild(a);
