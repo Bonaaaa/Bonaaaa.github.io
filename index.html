@@ -43,13 +43,21 @@
         }
 
         .Project-section {
-            background-image: url('stack.png'); /* Replace with your image path */
             background-size: cover;
             background-position: center;
             color: white; /* Ensure text is readable */
             padding: 60px 0;
         }
 
+        /* Specific background for Project - AB Corporation */
+        #Project-AB-Corporation {
+            background-image: url('stack.png'); /* Background for AB Corporation project */
+        }
+
+        /* Specific background for Fortress Global Health Insurance */
+        #Project-Fortress-Health {
+            background-image: url('healthcare.jpg'); /* Background for Fortress Health project */
+        }
 
         /* Semi-transparent overlay for better readability */
         .section-overlay {
@@ -97,7 +105,7 @@
                     <li class="nav-item"><a class="nav-link" href="#experience">Work Experience</a></li>
                     <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
                     <li class="nav-item"><a class="nav-link" href="#Certification">Certification</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#Project">Project</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#Project-AB-Corporation">Project</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
             </div>
@@ -387,18 +395,18 @@
 </script>
 
 
-    <!-- Project Section -->
-    <section id="Project" class="Project-section">
-        <div class="container">
-            <div class="section-overlay">
-                <h2 class="text-center mb-4">
-                    Project - AB Corporation: Integrated Logistics & Sales Network Optimization | <a href="project_0ne.pdf">Project Report</a>
-                </h2>
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card mb-3 bg-transparent text-white">
-                            <div class="card-body">
-                                <ul>
+    <!-- Project - AB Corporation -->
+<section id="Project-AB-Corporation" class="Project-section">
+    <div class="container">
+        <div class="section-overlay">
+            <h2 class="text-center mb-4">
+                Project - AB Corporation: Integrated Logistics & Sales Network Optimization | <a href="project_0ne.pdf">Project Report</a>
+            </h2>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card mb-3 bg-transparent text-white">
+                        <div class="card-body">
+                            <ul>
                                     <li>
                                         <strong><a href="saleshistorydec24splitmerge.html">Sales Map Distribution</a>:</strong> Leveraged TECA sales data to create a stacked column chart that visualizes unit sales across nine states, including data cleaning to ensure accurate mapping.
                                     </li>
@@ -415,25 +423,26 @@
                                         <strong>ERP-Based Logistics Management:</strong> Implemented end-to-end logistics management using Odoo to streamline order tracking, automate inventory flow, and enhance warehouse operations.
                                     </li>
                                 </ul>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    
-    <section id="Project" class="Project-section">
-        <div class="container">
-            <div class="section-overlay">
-                <h2 class="text-center mb-4">
-                    Project - Fortress Global Health Insurance: Predicting individual health insurance claim costs based on personal characteristics and lifestyle.
-                </h2>
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card mb-3 bg-transparent text-white">
-                            <div class="card-body">
-                                <ul>
+    </div>
+</section>
+
+<!-- Project - Fortress Global Health Insurance -->
+<section id="Project-Fortress-Health" class="Project-section">
+    <div class="container">
+        <div class="section-overlay">
+            <h2 class="text-center mb-4">
+                Project - Fortress Global Health Insurance: Predicting individual health insurance claim costs based on personal characteristics and lifestyle.
+            </h2>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card mb-3 bg-transparent text-white">
+                        <div class="card-body">
+                            <ul>
                                     <li>
                                         <strong><a href="">Data Scraping and Wrangling</a>:</strong> Identified key features for predicting health insurance claim costs using personal and lifestyle data based on X user posts. Loaded and cleaned the dataset, in raw CSV, with Python. Integrated dataset via Google Drive and Google Colab; verified successful loading with no errors.
                                     </li>
@@ -444,13 +453,14 @@
                                         <strong><a href="">Exploratory Data Analysis (EDA)</a>:</strong> Conducted EDA using Python libraries (Pandas, Matplotlib, Seaborn) to visualize data distributions and relationships. Identified outliers and missing values, and performed feature engineering to enhance model performance.
                                     </li>
                                 </ul>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
 
     <!-- Contact Section -->
     <section id="contact" class="bg-light py-5">
